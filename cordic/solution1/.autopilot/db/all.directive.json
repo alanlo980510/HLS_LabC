@@ -1,0 +1,69 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "cordiccart2pol",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceLine": "6",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "cordiccart2pol"
+              }]
+          }
+        },
+        {
+          "functionName": "cordiccart2pol",
+          "label": "cordic_loop",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceLine": "7",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "cordiccart2pol",
+          "label": "",
+          "functionLabel": "",
+          "id": "3",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceLine": "8",
+          "pragma": {
+            "name": "ARRAY_PARTITION",
+            "option": [
+              {
+                "name": "variable",
+                "value": "angles"
+              },
+              {
+                "name": "complete",
+                "value": ""
+              },
+              {
+                "name": "dim",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "cordiccart2pol",
+          "label": "",
+          "functionLabel": "",
+          "id": "4",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/csynth.tcl",
+          "sourceLine": "16",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "cordiccart2pol"
+              }]
+          }
+        }
+      ]
+    }]}

@@ -1,0 +1,173 @@
+
+
+================================================================
+== Vitis HLS Report for 'cordiccart2pol'
+================================================================
+* Date:           Fri Nov 11 21:01:53 2022
+
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:48:16 MDT 2022)
+* Project:        cordic
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  4.606 ns|     5.39 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       16|       16|  0.160 us|  0.160 us|   17|   17|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 4.40>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%y_read = read i15 @_ssdm_op_Read.ap_auto.i15, i15 %y"   --->   Operation 5 'read' 'y_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%x_read = read i15 @_ssdm_op_Read.ap_auto.i15, i15 %x"   --->   Operation 6 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%theta_out_V_loc = alloca i64 1"   --->   Operation 7 'alloca' 'theta_out_V_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%x_cordic_V_5_loc = alloca i64 1"   --->   Operation 8 'alloca' 'x_cordic_V_5_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i15.i32, i15 %x_read, i32 14"   --->   Operation 9 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.94ns)   --->   "%x_cordic_V = sub i15 0, i15 %x_read"   --->   Operation 10 'sub' 'x_cordic_V' <Predicate = true> <Delay = 1.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.94> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (1.94ns)   --->   "%y_cordic_V = sub i15 0, i15 %y_read"   --->   Operation 11 'sub' 'y_cordic_V' <Predicate = true> <Delay = 1.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.94> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.75ns)   --->   "%select_ln1697 = select i1 %tmp, i15 %x_cordic_V, i15 %x_read"   --->   Operation 12 'select' 'select_ln1697' <Predicate = true> <Delay = 0.75> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 13 [1/1] (0.75ns)   --->   "%select_ln1697_1 = select i1 %tmp, i15 %y_cordic_V, i15 %y_read"   --->   Operation 13 'select' 'select_ln1697_1' <Predicate = true> <Delay = 0.75> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 14 [2/2] (1.70ns)   --->   "%call_ln1697 = call void @cordiccart2pol_Pipeline_cordic_loop, i15 %select_ln1697, i15 %select_ln1697_1, i15 %x_cordic_V_5_loc, i15 %theta_out_V_loc"   --->   Operation 14 'call' 'call_ln1697' <Predicate = true> <Delay = 1.70> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 1.30>
+ST_2 : Operation 15 [1/2] (1.30ns)   --->   "%call_ln1697 = call void @cordiccart2pol_Pipeline_cordic_loop, i15 %select_ln1697, i15 %select_ln1697_1, i15 %x_cordic_V_5_loc, i15 %theta_out_V_loc"   --->   Operation 15 'call' 'call_ln1697' <Predicate = true> <Delay = 1.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 2.69>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%x_cordic_V_5_loc_load = load i15 %x_cordic_V_5_loc"   --->   Operation 16 'load' 'x_cordic_V_5_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%theta_out_V_loc_load = load i15 %theta_out_V_loc"   --->   Operation 17 'load' 'theta_out_V_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%r_1 = partselect i14 @_ssdm_op_PartSelect.i14.i15.i32.i32, i15 %x_cordic_V_5_loc_load, i32 1, i32 14"   --->   Operation 18 'partselect' 'r_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%sext_ln1534 = sext i14 %r_1"   --->   Operation 19 'sext' 'sext_ln1534' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%r_2 = partselect i12 @_ssdm_op_PartSelect.i12.i15.i32.i32, i15 %x_cordic_V_5_loc_load, i32 3, i32 14"   --->   Operation 20 'partselect' 'r_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%sext_ln1534_1 = sext i12 %r_2"   --->   Operation 21 'sext' 'sext_ln1534_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%r_3 = partselect i9 @_ssdm_op_PartSelect.i9.i15.i32.i32, i15 %x_cordic_V_5_loc_load, i32 6, i32 14"   --->   Operation 22 'partselect' 'r_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%r_V = partselect i6 @_ssdm_op_PartSelect.i6.i15.i32.i32, i15 %x_cordic_V_5_loc_load, i32 9, i32 14"   --->   Operation 23 'partselect' 'r_V' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (1.81ns)   --->   "%add_ln1394 = add i15 %sext_ln1534, i15 %sext_ln1534_1"   --->   Operation 24 'add' 'add_ln1394' <Predicate = true> <Delay = 1.81> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.81> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node add_ln141)   --->   "%tmp_3 = bitselect i1 @_ssdm_op_BitSelect.i1.i15.i32, i15 %y_read, i32 14" [cordic/code_src/cordiccart2pol.cpp:141]   --->   Operation 25 'bitselect' 'tmp_3' <Predicate = (tmp)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns) (grouped into LUT with out node add_ln141)   --->   "%select_ln141 = select i1 %tmp_3, i15 19900, i15 12868" [cordic/code_src/cordiccart2pol.cpp:141]   --->   Operation 26 'select' 'select_ln141' <Predicate = (tmp)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (1.94ns) (out node of the LUT)   --->   "%add_ln141 = add i15 %select_ln141, i15 %theta_out_V_loc_load" [cordic/code_src/cordiccart2pol.cpp:141]   --->   Operation 27 'add' 'add_ln141' <Predicate = (tmp)> <Delay = 1.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.94> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 28 [1/1] (0.75ns)   --->   "%select_ln1697_2 = select i1 %tmp, i15 %add_ln141, i15 %theta_out_V_loc_load"   --->   Operation 28 'select' 'select_ln1697_2' <Predicate = true> <Delay = 0.75> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.75> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%write_ln139 = write void @_ssdm_op_Write.ap_auto.i15P0A, i15 %theta, i15 %select_ln1697_2" [cordic/code_src/cordiccart2pol.cpp:139]   --->   Operation 29 'write' 'write_ln139' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 3.87>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%spectopmodule_ln10 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [cordic/code_src/cordiccart2pol.cpp:10]   --->   Operation 30 'spectopmodule' 'spectopmodule_ln10' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i15 %x"   --->   Operation 31 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i15 %x, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 32 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i15 %y"   --->   Operation 33 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i15 %y, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i15 %r"   --->   Operation 35 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i15 %r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i15 %theta"   --->   Operation 37 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i15 %theta, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%sext_ln1534_2 = sext i9 %r_3"   --->   Operation 39 'sext' 'sext_ln1534_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%sext_ln1534_3 = sext i6 %r_V"   --->   Operation 40 'sext' 'sext_ln1534_3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln1394 = sub i15 %add_ln1394, i15 %sext_ln1534_3"   --->   Operation 41 'sub' 'sub_ln1394' <Predicate = true> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.93> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 42 [1/1] (3.87ns) (root node of TernaryAdder)   --->   "%sub_ln859 = sub i15 %sub_ln1394, i15 %sext_ln1534_2"   --->   Operation 42 'sub' 'sub_ln859' <Predicate = true> <Delay = 3.87> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.93> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%write_ln138 = write void @_ssdm_op_Write.ap_auto.i15P0A, i15 %r, i15 %sub_ln859" [cordic/code_src/cordiccart2pol.cpp:138]   --->   Operation 43 'write' 'write_ln138' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%ret_ln144 = ret" [cordic/code_src/cordiccart2pol.cpp:144]   --->   Operation 44 'ret' 'ret_ln144' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 5.39ns.
+
+ <State 1>: 4.41ns
+The critical path consists of the following:
+	wire read operation ('y_read') on port 'y' [5]  (0 ns)
+	'sub' operation ('y_cordic.V') [20]  (1.94 ns)
+	'select' operation ('select_ln1697_1') [22]  (0.754 ns)
+	'call' operation ('call_ln1697') to 'cordiccart2pol_Pipeline_cordic_loop' [23]  (1.71 ns)
+
+ <State 2>: 1.3ns
+The critical path consists of the following:
+	'call' operation ('call_ln1697') to 'cordiccart2pol_Pipeline_cordic_loop' [23]  (1.3 ns)
+
+ <State 3>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('theta_out_V_loc_load') on local variable 'theta_out_V_loc' [25]  (0 ns)
+	'add' operation ('add_ln141', cordic/code_src/cordiccart2pol.cpp:141) [40]  (1.94 ns)
+	'select' operation ('select_ln1697_2') [41]  (0.754 ns)
+
+ <State 4>: 3.87ns
+The critical path consists of the following:
+	'sub' operation ('sub_ln859') [36]  (3.87 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
