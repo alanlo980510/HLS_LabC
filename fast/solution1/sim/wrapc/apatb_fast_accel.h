@@ -5,8 +5,8 @@
 // ==============================================================
 
 extern "C" void AESL_WRAP_fast_accel (
-int img_in,
+volatile void* img_in,
 int threshold,
-int img_out,
+volatile void* img_out,
 int rows,
 int cols);

@@ -314,7 +314,6 @@ void set_string(std::string list, std::string* class_list) {
 };
 
 
-struct __cosim_s2__ { char data[2]; };
 extern "C" void fast_accel_hw_stub_wrapper(volatile void *, int, volatile void *, int, int);
 
 extern "C" void apatb_fast_accel_hw(volatile void * __xlx_apatb_param_img_in, int __xlx_apatb_param_threshold, volatile void * __xlx_apatb_param_img_out, int __xlx_apatb_param_rows, int __xlx_apatb_param_cols) {
@@ -330,58 +329,15 @@ static AESL_FILE_HANDLER aesl_fh;
     static unsigned AESL_transaction_pc = 0;
     string AESL_token;
     string AESL_num;
+#ifdef USE_BINARY_TV_FILE
 {
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_img_in);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<16> > img_in_pc_buffer(17000);
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token);
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              img_in_pc_buffer[i] = AESL_token.c_str();;
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "img_in" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {{
-		    int i = 0;
-            for (int j = 0, e = 17000; j < e; j += 1, ++i) {((char*)__xlx_apatb_param_img_in)[j*2+0] = img_in_pc_buffer[i].range(7, 0).to_int64();
-((char*)__xlx_apatb_param_img_in)[j*2+1] = img_in_pc_buffer[i].range(15, 8).to_int64();
-}}}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  {
+transaction<9> tr(17000);
+aesl_fh.read(AUTOTB_TVOUT_PC_img_out, tr.p, tr.tbytes);
+if (little_endian()) { tr.reorder(); }
+tr.send<2>((char*)__xlx_apatb_param_img_out, 17000);
+}
+#else
+{
       static ifstream rtl_tv_out_file;
       if (!rtl_tv_out_file.is_open()) {
         rtl_tv_out_file.open(AUTOTB_TVOUT_PC_img_out);
@@ -400,7 +356,7 @@ static AESL_FILE_HANDLER aesl_fh;
           exit(1);
         }
         if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<16> > img_out_pc_buffer(17000);
+          std::vector<sc_bv<9> > img_out_pc_buffer(17000);
           int i = 0;
           bool has_unknown_value = false;
           rtl_tv_out_file >> AESL_token; //data
@@ -425,14 +381,15 @@ static AESL_FILE_HANDLER aesl_fh;
           }
   
           if (i > 0) {{
-		    int i = 0;
+            int i = 0;
             for (int j = 0, e = 17000; j < e; j += 1, ++i) {((char*)__xlx_apatb_param_img_out)[j*2+0] = img_out_pc_buffer[i].range(7, 0).to_int64();
-((char*)__xlx_apatb_param_img_out)[j*2+1] = img_out_pc_buffer[i].range(15, 8).to_int64();
+((char*)__xlx_apatb_param_img_out)[j*2+1] = img_out_pc_buffer[i].range(8, 8).to_int64();
 }}}
         } // end transaction
       } // end file is good
     } // end post check logic bolck
-  
+  #endif
+
     AESL_transaction_pc++;
     return ;
   }
@@ -441,13 +398,31 @@ static INTER_TCL_FILE tcl_file(INTER_TCL);
 std::vector<char> __xlx_sprintf_buffer(1024);
 CodeState = ENTER_WRAPC;
 CodeState = DUMP_INPUTS;
+unsigned __xlx_offset_byte_param_img_in = 0;
+#ifdef USE_BINARY_TV_FILE
+{
+aesl_fh.touch(AUTOTB_TVIN_img_in, 'b');
+transaction<9> tr(17000);
+  __xlx_offset_byte_param_img_in = 0*2;
+  if (__xlx_apatb_param_img_in) {
+tr.import<2>((char*)__xlx_apatb_param_img_in, 17000, 0);
+  }
+aesl_fh.write(AUTOTB_TVIN_img_in, tr.p, tr.tbytes);
+}
+
+  tcl_file.set_num(17000, &tcl_file.img_in_depth);
+#else
 // print img_in Transactions
 {
 aesl_fh.write(AUTOTB_TVIN_img_in, begin_str(AESL_transaction));
+{
+  __xlx_offset_byte_param_img_in = 0*2;
 if (__xlx_apatb_param_img_in) {
-for (int i = 0; i < 17000; ++i) {
-auto *pos = (unsigned char*)__xlx_apatb_param_img_in+i*2;
-aesl_fh.write(AUTOTB_TVIN_img_in, formatData(pos, 16));
+for (size_t i = 0; i < 17000; ++i) {
+unsigned char *pos = (unsigned char*)__xlx_apatb_param_img_in + i * 2;
+std::string s = formatData(pos, 9);
+aesl_fh.write(AUTOTB_TVIN_img_in, s);
+}
 }
 }
 
@@ -455,13 +430,32 @@ aesl_fh.write(AUTOTB_TVIN_img_in, formatData(pos, 16));
 aesl_fh.write(AUTOTB_TVIN_img_in, end_str());
 }
 
+#endif
+unsigned __xlx_offset_byte_param_img_out = 0;
+#ifdef USE_BINARY_TV_FILE
+{
+aesl_fh.touch(AUTOTB_TVIN_img_out, 'b');
+transaction<9> tr(17000);
+  __xlx_offset_byte_param_img_out = 0*2;
+  if (__xlx_apatb_param_img_out) {
+tr.import<2>((char*)__xlx_apatb_param_img_out, 17000, 0);
+  }
+aesl_fh.write(AUTOTB_TVIN_img_out, tr.p, tr.tbytes);
+}
+
+  tcl_file.set_num(17000, &tcl_file.img_out_depth);
+#else
 // print img_out Transactions
 {
 aesl_fh.write(AUTOTB_TVIN_img_out, begin_str(AESL_transaction));
+{
+  __xlx_offset_byte_param_img_out = 0*2;
 if (__xlx_apatb_param_img_out) {
-for (int i = 0; i < 17000; ++i) {
-auto *pos = (unsigned char*)__xlx_apatb_param_img_out+i*2;
-aesl_fh.write(AUTOTB_TVIN_img_out, formatData(pos, 16));
+for (size_t i = 0; i < 17000; ++i) {
+unsigned char *pos = (unsigned char*)__xlx_apatb_param_img_out + i * 2;
+std::string s = formatData(pos, 9);
+aesl_fh.write(AUTOTB_TVIN_img_out, s);
+}
 }
 }
 
@@ -469,6 +463,7 @@ aesl_fh.write(AUTOTB_TVIN_img_out, formatData(pos, 16));
 aesl_fh.write(AUTOTB_TVIN_img_out, end_str());
 }
 
+#endif
 // print threshold Transactions
 {
 aesl_fh.write(AUTOTB_TVIN_threshold, begin_str(AESL_transaction));
@@ -505,27 +500,30 @@ aesl_fh.write(AUTOTB_TVIN_cols, end_str());
 CodeState = CALL_C_DUT;
 fast_accel_hw_stub_wrapper(__xlx_apatb_param_img_in, __xlx_apatb_param_threshold, __xlx_apatb_param_img_out, __xlx_apatb_param_rows, __xlx_apatb_param_cols);
 CodeState = DUMP_OUTPUTS;
-// print img_in Transactions
+#ifdef USE_BINARY_TV_FILE
 {
-aesl_fh.write(AUTOTB_TVOUT_img_in, begin_str(AESL_transaction));
-if (__xlx_apatb_param_img_in) {
-for (int i = 0; i < 17000; ++i) {
-auto *pos = (unsigned char*)__xlx_apatb_param_img_in+i*2;
-aesl_fh.write(AUTOTB_TVOUT_img_in, formatData(pos, 16));
-}
-}
-
-  tcl_file.set_num(17000, &tcl_file.img_in_depth);
-aesl_fh.write(AUTOTB_TVOUT_img_in, end_str());
+aesl_fh.touch(AUTOTB_TVOUT_img_out, 'b');
+transaction<9> tr(17000);
+  __xlx_offset_byte_param_img_out = 0*2;
+  if (__xlx_apatb_param_img_out) {
+tr.import<2>((char*)__xlx_apatb_param_img_out, 17000, 0);
+  }
+aesl_fh.write(AUTOTB_TVOUT_img_out, tr.p, tr.tbytes);
 }
 
+  tcl_file.set_num(17000, &tcl_file.img_out_depth);
+#else
 // print img_out Transactions
 {
 aesl_fh.write(AUTOTB_TVOUT_img_out, begin_str(AESL_transaction));
+{
+  __xlx_offset_byte_param_img_out = 0*2;
 if (__xlx_apatb_param_img_out) {
-for (int i = 0; i < 17000; ++i) {
-auto *pos = (unsigned char*)__xlx_apatb_param_img_out+i*2;
-aesl_fh.write(AUTOTB_TVOUT_img_out, formatData(pos, 16));
+for (size_t i = 0; i < 17000; ++i) {
+unsigned char *pos = (unsigned char*)__xlx_apatb_param_img_out + i * 2;
+std::string s = formatData(pos, 9);
+aesl_fh.write(AUTOTB_TVOUT_img_out, s);
+}
 }
 }
 
@@ -533,6 +531,7 @@ aesl_fh.write(AUTOTB_TVOUT_img_out, formatData(pos, 16));
 aesl_fh.write(AUTOTB_TVOUT_img_out, end_str());
 }
 
+#endif
 CodeState = DELETE_CHAR_BUFFERS;
 AESL_transaction++;
 tcl_file.set_num(AESL_transaction , &tcl_file.trans_num);

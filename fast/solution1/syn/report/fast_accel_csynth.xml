@@ -18,27 +18,27 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.130</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.254</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>16783</Best-caseLatency>
-<Average-caseLatency>16783</Average-caseLatency>
-<Worst-caseLatency>16783</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.168 ms</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.168 ms</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.168 ms</Worst-caseRealTimeLatency>
-<Interval-min>16784</Interval-min>
-<Interval-max>16784</Interval-max>
+<Best-caseLatency>16400</Best-caseLatency>
+<Average-caseLatency>16400</Average-caseLatency>
+<Worst-caseLatency>16400</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.164 ms</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.164 ms</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.164 ms</Worst-caseRealTimeLatency>
+<Interval-min>16401</Interval-min>
+<Interval-max>16401</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>7766</FF>
-<LUT>1651</LUT>
+<DSP>2</DSP>
+<FF>8185</FF>
+<LUT>1786</LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -63,7 +63,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ap_rst_n</name>
+<name>ap_rst</name>
 <Object>fast_accel</Object>
 <Type>return value</Type>
 <Scope></Scope>
@@ -118,39 +118,39 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>img_in_TDATA</name>
+<name>img_in_address0</name>
 <Object>img_in</Object>
-<Type>pointer</Type>
+<Type>array</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>16</Bits>
-<Attribute>data</Attribute>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>15</Bits>
+<Attribute>address</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>img_in_TVALID</name>
+<name>img_in_ce0</name>
 <Object>img_in</Object>
-<Type>pointer</Type>
+<Type>array</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>img_in_TREADY</name>
-<Object>img_in</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>img_in_q0</name>
+<Object>img_in</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>9</Bits>
+<Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
@@ -166,39 +166,51 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>img_out_TDATA</name>
+<name>img_out_address0</name>
 <Object>img_out</Object>
-<Type>pointer</Type>
+<Type>array</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>16</Bits>
+<Bits>15</Bits>
+<Attribute>address</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>img_out_ce0</name>
+<Object>img_out</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>img_out_we0</name>
+<Object>img_out</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>img_out_d0</name>
+<Object>img_out</Object>
+<Type>array</Type>
+<Scope></Scope>
+<IOProtocol>ap_memory</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>9</Bits>
 <Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>img_out_TVALID</name>
-<Object>img_out</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>img_out_TREADY</name>
-<Object>img_out</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>

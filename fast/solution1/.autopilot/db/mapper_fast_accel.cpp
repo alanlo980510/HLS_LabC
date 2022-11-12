@@ -180,11 +180,56 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
-struct __cosim_s2__ { char data[2]; };
-extern "C" void fast_accel(volatile void *, int, volatile void *, int, int);
+extern "C" void fast_accel(short*, int, short*, int, int);
 extern "C" void apatb_fast_accel_hw(volatile void * __xlx_apatb_param_img_in, int __xlx_apatb_param_threshold, volatile void * __xlx_apatb_param_img_out, int __xlx_apatb_param_rows, int __xlx_apatb_param_cols) {
-auto* simg_in = bcsim::createStream(__xlx_apatb_param_img_in, 2);
-auto* simg_out = bcsim::createStream(__xlx_apatb_param_img_out, 2);
+  // Collect __xlx_img_in__tmp_vec
+  vector<sc_bv<9> >__xlx_img_in__tmp_vec;
+  for (int j = 0, e = 17000; j != e; ++j) {
+    sc_bv<9> _xlx_tmp_sc;
+    _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_img_in)[j*2+0];
+    _xlx_tmp_sc.range(8, 8) = ((char*)__xlx_apatb_param_img_in)[j*2+1];
+    __xlx_img_in__tmp_vec.push_back(_xlx_tmp_sc);
+  }
+  int __xlx_size_param_img_in = 17000;
+  int __xlx_offset_param_img_in = 0;
+  int __xlx_offset_byte_param_img_in = 0*2;
+  short* __xlx_img_in__input_buffer= new short[__xlx_img_in__tmp_vec.size()];
+  for (int i = 0; i < __xlx_img_in__tmp_vec.size(); ++i) {
+    __xlx_img_in__input_buffer[i] = __xlx_img_in__tmp_vec[i].range(8, 0).to_uint64();
+  }
+  // Collect __xlx_img_out__tmp_vec
+  vector<sc_bv<9> >__xlx_img_out__tmp_vec;
+  for (int j = 0, e = 17000; j != e; ++j) {
+    sc_bv<9> _xlx_tmp_sc;
+    _xlx_tmp_sc.range(7, 0) = ((char*)__xlx_apatb_param_img_out)[j*2+0];
+    _xlx_tmp_sc.range(8, 8) = ((char*)__xlx_apatb_param_img_out)[j*2+1];
+    __xlx_img_out__tmp_vec.push_back(_xlx_tmp_sc);
+  }
+  int __xlx_size_param_img_out = 17000;
+  int __xlx_offset_param_img_out = 0;
+  int __xlx_offset_byte_param_img_out = 0*2;
+  short* __xlx_img_out__input_buffer= new short[__xlx_img_out__tmp_vec.size()];
+  for (int i = 0; i < __xlx_img_out__tmp_vec.size(); ++i) {
+    __xlx_img_out__input_buffer[i] = __xlx_img_out__tmp_vec[i].range(8, 0).to_uint64();
+  }
   // DUT call
-  fast_accel(__xlx_apatb_param_img_in, __xlx_apatb_param_threshold, __xlx_apatb_param_img_out, __xlx_apatb_param_rows, __xlx_apatb_param_cols);
+  fast_accel(__xlx_img_in__input_buffer, __xlx_apatb_param_threshold, __xlx_img_out__input_buffer, __xlx_apatb_param_rows, __xlx_apatb_param_cols);
+// print __xlx_apatb_param_img_in
+  sc_bv<9>*__xlx_img_in_output_buffer = new sc_bv<9>[__xlx_size_param_img_in];
+  for (int i = 0; i < __xlx_size_param_img_in; ++i) {
+    __xlx_img_in_output_buffer[i] = __xlx_img_in__input_buffer[i+__xlx_offset_param_img_in];
+  }
+  for (int i = 0; i < __xlx_size_param_img_in; ++i) {
+    ((char*)__xlx_apatb_param_img_in)[i*2+0] = __xlx_img_in_output_buffer[i].range(7, 0).to_uint();
+    ((char*)__xlx_apatb_param_img_in)[i*2+1] = __xlx_img_in_output_buffer[i].range(8, 8).to_uint();
+  }
+// print __xlx_apatb_param_img_out
+  sc_bv<9>*__xlx_img_out_output_buffer = new sc_bv<9>[__xlx_size_param_img_out];
+  for (int i = 0; i < __xlx_size_param_img_out; ++i) {
+    __xlx_img_out_output_buffer[i] = __xlx_img_out__input_buffer[i+__xlx_offset_param_img_out];
+  }
+  for (int i = 0; i < __xlx_size_param_img_out; ++i) {
+    ((char*)__xlx_apatb_param_img_out)[i*2+0] = __xlx_img_out_output_buffer[i].range(7, 0).to_uint();
+    ((char*)__xlx_apatb_param_img_out)[i*2+1] = __xlx_img_out_output_buffer[i].range(8, 8).to_uint();
+  }
 }

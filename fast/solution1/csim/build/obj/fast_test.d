@@ -1,4 +1,4 @@
-obj/fast_test.o: ../../../code_src/fast_test.cpp ../../../code_src/fast.h \
+obj/fast_test.o: ../../../fast_test.cpp ../../../fast.h \
  C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h \
  C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h \
  C:/Xilinx/Vitis_HLS/2022.1/include/ap_decl.h \

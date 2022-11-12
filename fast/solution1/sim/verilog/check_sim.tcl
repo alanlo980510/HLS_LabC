@@ -83,6 +83,7 @@ proc check_tvin_file {} {
     set rtlfilelist {
          "c.fast_accel.autotvin_img_in.dat"
          "c.fast_accel.autotvin_threshold.dat"
+         "c.fast_accel.autotvin_img_out.dat"
          "c.fast_accel.autotvin_rows.dat"
          "c.fast_accel.autotvin_cols.dat"
     }

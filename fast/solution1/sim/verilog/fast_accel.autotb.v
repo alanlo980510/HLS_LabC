@@ -15,17 +15,21 @@
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
 `define AUTOTB_CLOCK_PERIOD_DIV2 5.00
 
-`define AESL_DEPTH_img_in 1
+`define AESL_MEM_img_in AESL_automem_img_in
+`define AESL_MEM_INST_img_in mem_inst_img_in
 `define AESL_DEPTH_threshold 1
-`define AESL_DEPTH_img_out 1
+`define AESL_MEM_img_out AESL_automem_img_out
+`define AESL_MEM_INST_img_out mem_inst_img_out
 `define AESL_DEPTH_rows 1
 `define AESL_DEPTH_cols 1
 `define AUTOTB_TVIN_img_in  "../tv/cdatafile/c.fast_accel.autotvin_img_in.dat"
 `define AUTOTB_TVIN_threshold  "../tv/cdatafile/c.fast_accel.autotvin_threshold.dat"
+`define AUTOTB_TVIN_img_out  "../tv/cdatafile/c.fast_accel.autotvin_img_out.dat"
 `define AUTOTB_TVIN_rows  "../tv/cdatafile/c.fast_accel.autotvin_rows.dat"
 `define AUTOTB_TVIN_cols  "../tv/cdatafile/c.fast_accel.autotvin_cols.dat"
 `define AUTOTB_TVIN_img_in_out_wrapc  "../tv/rtldatafile/rtl.fast_accel.autotvin_img_in.dat"
 `define AUTOTB_TVIN_threshold_out_wrapc  "../tv/rtldatafile/rtl.fast_accel.autotvin_threshold.dat"
+`define AUTOTB_TVIN_img_out_out_wrapc  "../tv/rtldatafile/rtl.fast_accel.autotvin_img_out.dat"
 `define AUTOTB_TVIN_rows_out_wrapc  "../tv/rtldatafile/rtl.fast_accel.autotvin_rows.dat"
 `define AUTOTB_TVIN_cols_out_wrapc  "../tv/rtldatafile/rtl.fast_accel.autotvin_cols.dat"
 `define AUTOTB_TVOUT_img_out  "../tv/cdatafile/c.fast_accel.autotvout_img_out.dat"
@@ -34,7 +38,7 @@ module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 1;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 16783;
+parameter LATENCY_ESTIMATION = 16400;
 parameter LENGTH_img_in = 17000;
 parameter LENGTH_threshold = 1;
 parameter LENGTH_img_out = 17000;
@@ -43,7 +47,7 @@ parameter LENGTH_cols = 1;
 
 task read_token;
     input integer fp;
-    output reg [135 : 0] token;
+    output reg [151 : 0] token;
     integer ret;
     begin
         token = "";
@@ -74,13 +78,14 @@ wire ap_start;
 wire ap_done;
 wire ap_idle;
 wire ap_ready;
-wire [15 : 0] img_in_TDATA;
-wire  img_in_TVALID;
-wire  img_in_TREADY;
+wire [14 : 0] img_in_address0;
+wire  img_in_ce0;
+wire [8 : 0] img_in_q0;
 wire [31 : 0] threshold;
-wire [15 : 0] img_out_TDATA;
-wire  img_out_TVALID;
-wire  img_out_TREADY;
+wire [14 : 0] img_out_address0;
+wire  img_out_ce0;
+wire  img_out_we0;
+wire [8 : 0] img_out_d0;
 wire [31 : 0] rows;
 wire [31 : 0] cols;
 integer done_cnt = 0;
@@ -95,30 +100,31 @@ reg interface_done = 0;
 
 
 wire ap_clk;
+wire ap_rst;
 wire ap_rst_n;
-wire ap_rst_n_n;
 
 `AUTOTB_DUT `AUTOTB_DUT_INST(
     .ap_clk(ap_clk),
-    .ap_rst_n(ap_rst_n),
+    .ap_rst(ap_rst),
     .ap_start(ap_start),
     .ap_done(ap_done),
     .ap_idle(ap_idle),
     .ap_ready(ap_ready),
-    .img_in_TDATA(img_in_TDATA),
-    .img_in_TVALID(img_in_TVALID),
-    .img_in_TREADY(img_in_TREADY),
+    .img_in_address0(img_in_address0),
+    .img_in_ce0(img_in_ce0),
+    .img_in_q0(img_in_q0),
     .threshold(threshold),
-    .img_out_TDATA(img_out_TDATA),
-    .img_out_TVALID(img_out_TVALID),
-    .img_out_TREADY(img_out_TREADY),
+    .img_out_address0(img_out_address0),
+    .img_out_ce0(img_out_ce0),
+    .img_out_we0(img_out_we0),
+    .img_out_d0(img_out_d0),
     .rows(rows),
     .cols(cols));
 
 // Assignment for control signal
 assign ap_clk = AESL_clock;
-assign ap_rst_n = dut_rst;
-assign ap_rst_n_n = ~dut_rst;
+assign ap_rst = dut_rst;
+assign ap_rst_n = ~dut_rst;
 assign AESL_reset = rst;
 assign ap_start = AESL_start;
 assign AESL_start = start;
@@ -128,7 +134,7 @@ assign AESL_ready = ap_ready;
 assign AESL_ce = ce;
 assign AESL_continue = tb_continue;
     always @(posedge AESL_clock) begin
-        if (AESL_reset === 0) begin
+        if (AESL_reset) begin
         end else begin
             if (AESL_done !== 1 && AESL_done !== 0) begin
                 $display("ERROR: Control signal AESL_done is invalid!");
@@ -137,7 +143,7 @@ assign AESL_continue = tb_continue;
         end
     end
     always @(posedge AESL_clock) begin
-        if (AESL_reset === 0) begin
+        if (AESL_reset) begin
         end else begin
             if (AESL_ready !== 1 && AESL_ready !== 0) begin
                 $display("ERROR: Control signal AESL_ready is invalid!");
@@ -145,6 +151,45 @@ assign AESL_continue = tb_continue;
             end
         end
     end
+//------------------------arrayimg_in Instantiation--------------
+
+// The input and output of arrayimg_in
+wire    arrayimg_in_ce0, arrayimg_in_ce1;
+wire [2 - 1 : 0]    arrayimg_in_we0, arrayimg_in_we1;
+wire    [14 : 0]    arrayimg_in_address0, arrayimg_in_address1;
+wire    [8 : 0]    arrayimg_in_din0, arrayimg_in_din1;
+wire    [8 : 0]    arrayimg_in_dout0, arrayimg_in_dout1;
+wire    arrayimg_in_ready;
+wire    arrayimg_in_done;
+
+`AESL_MEM_img_in `AESL_MEM_INST_img_in(
+    .clk        (AESL_clock),
+    .rst        (AESL_reset),
+    .ce0        (arrayimg_in_ce0),
+    .we0        (arrayimg_in_we0),
+    .address0   (arrayimg_in_address0),
+    .din0       (arrayimg_in_din0),
+    .dout0      (arrayimg_in_dout0),
+    .ce1        (arrayimg_in_ce1),
+    .we1        (arrayimg_in_we1),
+    .address1   (arrayimg_in_address1),
+    .din1       (arrayimg_in_din1),
+    .dout1      (arrayimg_in_dout1),
+    .ready      (arrayimg_in_ready),
+    .done    (arrayimg_in_done)
+);
+
+// Assignment between dut and arrayimg_in
+assign arrayimg_in_address0 = img_in_address0;
+assign arrayimg_in_ce0 = img_in_ce0;
+assign img_in_q0 = arrayimg_in_dout0;
+assign arrayimg_in_we0 = 0;
+assign arrayimg_in_din0 = 0;
+assign arrayimg_in_we1 = 0;
+assign arrayimg_in_din1 = 0;
+assign arrayimg_in_ready=    ready;
+assign arrayimg_in_done = 0;
+
 
 // The signal of port threshold
 reg [31: 0] AESL_REG_threshold = 0;
@@ -154,12 +199,12 @@ initial begin : read_file_process_threshold
     integer err;
     integer ret;
     integer proc_rand;
-    reg [135  : 0] token;
+    reg [151  : 0] token;
     integer i;
     reg transaction_finish;
     integer transaction_idx;
     transaction_idx = 0;
-    wait(AESL_reset === 1);
+    wait(AESL_reset === 0);
     fp = $fopen(`AUTOTB_TVIN_threshold,"r");
     if(fp == 0) begin       // Failed to open file
         $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_threshold);
@@ -200,6 +245,45 @@ initial begin : read_file_process_threshold
 end
 
 
+//------------------------arrayimg_out Instantiation--------------
+
+// The input and output of arrayimg_out
+wire    arrayimg_out_ce0, arrayimg_out_ce1;
+wire [2 - 1 : 0]    arrayimg_out_we0, arrayimg_out_we1;
+wire    [14 : 0]    arrayimg_out_address0, arrayimg_out_address1;
+wire    [8 : 0]    arrayimg_out_din0, arrayimg_out_din1;
+wire    [8 : 0]    arrayimg_out_dout0, arrayimg_out_dout1;
+wire    arrayimg_out_ready;
+wire    arrayimg_out_done;
+
+`AESL_MEM_img_out `AESL_MEM_INST_img_out(
+    .clk        (AESL_clock),
+    .rst        (AESL_reset),
+    .ce0        (arrayimg_out_ce0),
+    .we0        (arrayimg_out_we0),
+    .address0   (arrayimg_out_address0),
+    .din0       (arrayimg_out_din0),
+    .dout0      (arrayimg_out_dout0),
+    .ce1        (arrayimg_out_ce1),
+    .we1        (arrayimg_out_we1),
+    .address1   (arrayimg_out_address1),
+    .din1       (arrayimg_out_din1),
+    .dout1      (arrayimg_out_dout1),
+    .ready      (arrayimg_out_ready),
+    .done    (arrayimg_out_done)
+);
+
+// Assignment between dut and arrayimg_out
+assign arrayimg_out_address0 = img_out_address0;
+assign arrayimg_out_ce0 = img_out_ce0;
+assign arrayimg_out_we0[0] = img_out_we0;
+assign arrayimg_out_we0[1] = img_out_we0;
+assign arrayimg_out_din0 = img_out_d0;
+assign arrayimg_out_we1 = 0;
+assign arrayimg_out_din1 = 0;
+assign arrayimg_out_ready= ready_initial | arrayimg_out_done;
+assign arrayimg_out_done =    AESL_done_delay;
+
 
 // The signal of port rows
 reg [31: 0] AESL_REG_rows = 0;
@@ -209,12 +293,12 @@ initial begin : read_file_process_rows
     integer err;
     integer ret;
     integer proc_rand;
-    reg [135  : 0] token;
+    reg [151  : 0] token;
     integer i;
     reg transaction_finish;
     integer transaction_idx;
     transaction_idx = 0;
-    wait(AESL_reset === 1);
+    wait(AESL_reset === 0);
     fp = $fopen(`AUTOTB_TVIN_rows,"r");
     if(fp == 0) begin       // Failed to open file
         $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_rows);
@@ -263,12 +347,12 @@ initial begin : read_file_process_cols
     integer err;
     integer ret;
     integer proc_rand;
-    reg [135  : 0] token;
+    reg [151  : 0] token;
     integer i;
     reg transaction_finish;
     integer transaction_idx;
     transaction_idx = 0;
-    wait(AESL_reset === 1);
+    wait(AESL_reset === 0);
     fp = $fopen(`AUTOTB_TVIN_cols,"r");
     if(fp == 0) begin       // Failed to open file
         $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_cols);
@@ -309,74 +393,9 @@ initial begin : read_file_process_cols
 end
 
 
-reg [31:0] ap_c_n_tvin_trans_num_img_in;
-
-reg img_in_ready_reg; // for self-sync
-
-wire img_in_ready;
-wire img_in_done;
-wire [31:0] img_in_transaction;
-wire axi_s_img_in_TVALID;
-wire axi_s_img_in_TREADY;
-
-AESL_axi_s_img_in AESL_AXI_S_img_in(
-    .clk(AESL_clock),
-    .reset(AESL_reset),
-    .TRAN_img_in_TDATA(img_in_TDATA),
-    .TRAN_img_in_TVALID(axi_s_img_in_TVALID),
-    .TRAN_img_in_TREADY(axi_s_img_in_TREADY),
-    .ready(img_in_ready),
-    .done(img_in_done),
-    .transaction(img_in_transaction));
-
-assign img_in_ready = ready;
-assign img_in_done = 0;
-
-assign img_in_TVALID = axi_s_img_in_TVALID;
-
-assign axi_s_img_in_TREADY = img_in_TREADY;
-reg [31:0] ap_c_n_tvin_trans_num_img_out;
-
-reg img_out_ready_reg; // for self-sync
-
-wire img_out_ready;
-wire img_out_done;
-wire [31:0] img_out_transaction;
-wire axi_s_img_out_TVALID;
-wire axi_s_img_out_TREADY;
-
-AESL_axi_s_img_out AESL_AXI_S_img_out(
-    .clk(AESL_clock),
-    .reset(AESL_reset),
-    .TRAN_img_out_TDATA(img_out_TDATA),
-    .TRAN_img_out_TVALID(axi_s_img_out_TVALID),
-    .TRAN_img_out_TREADY(axi_s_img_out_TREADY),
-    .ready(img_out_ready),
-    .done(img_out_done),
-    .transaction(img_out_transaction));
-
-assign img_out_ready = 0;
-assign img_out_done = AESL_done;
-
-assign axi_s_img_out_TVALID = img_out_TVALID;
-
-reg reg_img_out_TREADY;
-initial begin : gen_reg_img_out_TREADY_process
-    integer proc_rand;
-    reg_img_out_TREADY = axi_s_img_out_TREADY;
-    while(1)
-    begin
-        @(axi_s_img_out_TREADY);
-        reg_img_out_TREADY = axi_s_img_out_TREADY;
-    end
-end
-
-
-assign img_out_TREADY = reg_img_out_TREADY;
-
 initial begin : generate_AESL_ready_cnt_proc
     AESL_ready_cnt = 0;
-    wait(AESL_reset === 1);
+    wait(AESL_reset === 0);
     while(AESL_ready_cnt != AUTOTB_TRANSACTION_NUM) begin
         while(AESL_ready !== 1) begin
             @(posedge AESL_clock);
@@ -393,7 +412,7 @@ end
     
     initial begin : gen_ready_cnt
         ready_cnt = 0;
-        wait (AESL_reset === 1);
+        wait (AESL_reset === 0);
         forever begin
             @ (posedge AESL_clock);
             if (ready == 1) begin
@@ -409,7 +428,7 @@ end
     
     // done_cnt
     always @ (posedge AESL_clock) begin
-        if (~AESL_reset) begin
+        if (AESL_reset) begin
             done_cnt <= 0;
         end else begin
             if (AESL_done == 1) begin
@@ -439,29 +458,29 @@ reg [31:0] size_img_in_backup;
 reg end_threshold;
 reg [31:0] size_threshold;
 reg [31:0] size_threshold_backup;
+reg end_img_out;
+reg [31:0] size_img_out;
+reg [31:0] size_img_out_backup;
 reg end_rows;
 reg [31:0] size_rows;
 reg [31:0] size_rows_backup;
 reg end_cols;
 reg [31:0] size_cols;
 reg [31:0] size_cols_backup;
-reg end_img_out;
-reg [31:0] size_img_out;
-reg [31:0] size_img_out_backup;
 
 initial begin : initial_process
     integer proc_rand;
-    rst = 0;
+    rst = 1;
     # 100;
     repeat(0+3) @ (posedge AESL_clock);
-    rst = 1;
+    rst = 0;
 end
 initial begin : initial_process_for_dut_rst
     integer proc_rand;
-    dut_rst = 0;
+    dut_rst = 1;
     # 100;
     repeat(3) @ (posedge AESL_clock);
-    dut_rst = 1;
+    dut_rst = 0;
 end
 initial begin : start_process
     integer proc_rand;
@@ -469,7 +488,7 @@ initial begin : start_process
     ce = 1;
     start = 0;
     start_cnt = 0;
-    wait (AESL_reset === 1);
+    wait (AESL_reset === 0);
     @ (posedge AESL_clock);
     #0 start = 1;
     start_cnt = start_cnt + 1;
@@ -499,7 +518,7 @@ end
 
 always @(posedge AESL_clock)
 begin
-    if(AESL_reset === 0)
+    if(AESL_reset)
       AESL_ready_delay = 0;
   else
       AESL_ready_delay = AESL_ready;
@@ -513,7 +532,7 @@ end
 
 always @(posedge AESL_clock)
 begin
-    if(AESL_reset === 0)
+    if(AESL_reset)
       ready_delay_last_n = 0;
   else
       ready_delay_last_n <= ready_last_n;
@@ -530,7 +549,7 @@ end
 
 always @(posedge AESL_clock)
 begin
-    if(AESL_reset === 0)
+    if(AESL_reset)
   begin
       AESL_done_delay <= 0;
       AESL_done_delay2 <= 0;
@@ -542,7 +561,7 @@ begin
 end
 always @(posedge AESL_clock)
 begin
-    if(AESL_reset === 0)
+    if(AESL_reset)
       interface_done = 0;
   else begin
       # 0.01;
@@ -554,87 +573,6 @@ begin
           interface_done = 0;
   end
 end
-    
-    initial begin : proc_gen_axis_internal_ready_img_in
-        img_in_ready_reg = 0;
-        @ (posedge ready_initial);
-        forever begin
-            @ (ap_c_n_tvin_trans_num_img_in or img_in_transaction);
-            if (ap_c_n_tvin_trans_num_img_in > img_in_transaction) begin
-                img_in_ready_reg = 1;
-            end else begin
-                img_in_ready_reg = 0;
-            end
-        end
-    end
-    
-    `define STREAM_SIZE_IN_img_in "../tv/stream_size/stream_size_in_img_in.dat"
-    
-    initial begin : gen_ap_c_n_tvin_trans_num_img_in
-        integer fp_img_in;
-        reg [127:0] token_img_in;
-        integer ret;
-        
-        ap_c_n_tvin_trans_num_img_in = 0;
-        end_img_in = 0;
-        wait (AESL_reset === 1);
-        
-        fp_img_in = $fopen(`AUTOTB_TVIN_img_in, "r");
-        if(fp_img_in == 0) begin
-            $display("Failed to open file \"%s\"!", `AUTOTB_TVIN_img_in);
-            $finish;
-        end
-        read_token(fp_img_in, token_img_in); // should be [[[runtime]]]
-        if (token_img_in != "[[[runtime]]]") begin
-            $display("ERROR: token_img_in != \"[[[runtime]]]\"");
-            $finish;
-        end
-        ap_c_n_tvin_trans_num_img_in = ap_c_n_tvin_trans_num_img_in + 1;
-        read_token(fp_img_in, token_img_in); // should be [[transaction]] or [[[/runtime]]]
-        if (token_img_in == "[[[/runtime]]]") begin
-            $fclose(fp_img_in);
-            end_img_in = 1;
-        end else begin
-            end_img_in = 0;
-            read_token(fp_img_in, token_img_in); // should be transaction number
-            read_token(fp_img_in, token_img_in);
-        end
-        while (token_img_in == "[[/transaction]]" && end_img_in == 0) begin
-            ap_c_n_tvin_trans_num_img_in = ap_c_n_tvin_trans_num_img_in + 1;
-            read_token(fp_img_in, token_img_in); // should be [[transaction]] or [[[/runtime]]]
-            if (token_img_in == "[[[/runtime]]]") begin
-                $fclose(fp_img_in);
-                end_img_in = 1;
-            end else begin
-                end_img_in = 0;
-                read_token(fp_img_in, token_img_in); // should be transaction number
-                read_token(fp_img_in, token_img_in);
-            end
-        end
-        forever begin
-            @ (posedge AESL_clock);
-            if (end_img_in == 0) begin
-                if ((img_in_TREADY & img_in_TVALID) == 1) begin
-                    read_token(fp_img_in, token_img_in);
-                    while (token_img_in == "[[/transaction]]" && end_img_in == 0) begin
-                        ap_c_n_tvin_trans_num_img_in = ap_c_n_tvin_trans_num_img_in + 1;
-                        read_token(fp_img_in, token_img_in); // should be [[transaction]] or [[[/runtime]]]
-                        if (token_img_in == "[[[/runtime]]]") begin
-                            $fclose(fp_img_in);
-                            end_img_in = 1;
-                        end else begin
-                            end_img_in = 0;
-                            read_token(fp_img_in, token_img_in); // should be transaction number
-                            read_token(fp_img_in, token_img_in);
-                        end
-                    end
-                end
-            end else begin
-                ap_c_n_tvin_trans_num_img_in = ap_c_n_tvin_trans_num_img_in + 1;
-            end
-        end
-    end
-    
 task write_binary;
     input integer fp;
     input reg[64-1:0] in;
@@ -679,25 +617,24 @@ reg dump_tvout_finish_img_out;
 initial begin : dump_tvout_runtime_sign_img_out
     integer fp;
     dump_tvout_finish_img_out = 0;
-    fp = $fopen(`AUTOTB_TVOUT_img_out_out_wrapc, "w");
+    fp = $fopen(`AUTOTB_TVOUT_img_out_out_wrapc, "wb");
     if (fp == 0) begin
         $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_img_out_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
-    $fdisplay(fp,"[[[runtime]]]");
     $fclose(fp);
     wait (done_cnt == AUTOTB_TRANSACTION_NUM);
-    // last transaction is saved at negedge right after last done
     repeat(5) @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_img_out_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_img_out_out_wrapc, "ab");
     if (fp == 0) begin
         $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_img_out_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
-    $fdisplay(fp,"[[[/runtime]]]");
+    write_binary(fp,64'h5a5aa5a50f0ff0f0,64);
     $fclose(fp);
+    repeat(5) @ (posedge AESL_clock);
     dump_tvout_finish_img_out = 1;
 end
 
@@ -717,7 +654,7 @@ reg AESL_ready_p1;
 reg AESL_start_p1;
 
 always @ (posedge AESL_clock) begin
-    if (AESL_reset == 0) begin
+    if (AESL_reset == 1) begin
         clk_cnt <= 32'h0;
         AESL_ready_p1 <= 1'b0;
         AESL_start_p1 <= 1'b0;
@@ -748,7 +685,7 @@ initial begin
     start_cnt = 0;
     finish_cnt = 0;
     ap_ready_cnt = 0;
-    wait (AESL_reset == 1);
+    wait (AESL_reset == 0);
     wait_start();
     start_timestamp[start_cnt] = clk_cnt;
     start_cnt = start_cnt + 1;
@@ -785,7 +722,7 @@ reg [31:0] progress_timeout;
 
 initial begin : simulation_progress
     real intra_progress;
-    wait (AESL_reset == 1);
+    wait (AESL_reset == 0);
     progress_timeout = PROGRESS_TIMEOUT;
     $display("////////////////////////////////////////////////////////////////////////////////////");
     $display("// Inter-Transaction Progress: Completed Transaction / Total Transaction");
@@ -930,17 +867,12 @@ endtask
 `ifndef POST_SYN
 
 `endif
-
-AESL_deadlock_kernel_monitor_top kernel_monitor_top(
-    .kernel_monitor_reset(~AESL_reset),
-    .kernel_monitor_clock(AESL_clock));
-
 ///////////////////////////////////////////////////////
 // dataflow status monitor
 ///////////////////////////////////////////////////////
 dataflow_monitor U_dataflow_monitor(
     .clock(AESL_clock),
-    .reset(~rst),
+    .reset(rst),
     .finish(all_finish));
 
 `include "fifo_para.vh"

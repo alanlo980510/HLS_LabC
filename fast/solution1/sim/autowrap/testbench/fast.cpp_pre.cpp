@@ -1,7 +1,7 @@
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp"
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp"
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/iostream" 1 3
 # 36 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/iostream" 3
        
@@ -25505,9 +25505,9 @@ namespace std
 
 
 }
-# 2 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp" 2
+# 2 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp" 2
 
-# 2 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp"
+# 2 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp"
 using namespace std;
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
 # 37 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 3
@@ -27536,8 +27536,8 @@ using std::scalbln;
 using std::scalbn;
 using std::tgamma;
 using std::trunc;
-# 4 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp" 2
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.h" 1
+# 4 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp" 2
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h" 1
 # 56 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55248,7 +55248,7 @@ inline bool operator!=(
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
 # 407 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h" 2
-# 2 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.h" 2
+# 2 "C:/Users/Alan/Desktop/fast/code_src/fast.h" 2
 
 
 
@@ -55256,7 +55256,7 @@ inline bool operator!=(
 typedef ap_int<9> DTYPE;
 
 void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols);
-# 5 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp" 2
+# 5 "C:/Users/Alan/Desktop/fast/code_src/fast.cpp" 2
 
 typedef ap_uint<5> Cont_TYPE;
 
@@ -55271,7 +55271,10 @@ void shift_data(DTYPE buffer[771], DTYPE new_data){
     }
     buffer[771 -1] = new_data;
 }
-# 49 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.cpp"
+
+
+
+
 void calculation(DTYPE buffer[771], int threshold, Cont_TYPE &Comp_hard, Cont_TYPE &Comp_soft){
 #pragma HLS INLINE
 
@@ -55382,14 +55385,14 @@ void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols
     DTYPE new_data=0, out_data=0;
     Cont_TYPE Comp_hard, Comp_soft;
 
-    ap_int<10> in_i=0, out_i=-4;
-    ap_uint<7> in_j=0, out_j=127;
+    ap_int<10> in_i=0;
+    ap_uint<7> in_j=0, out_i=124, out_j=127;
     bool out_en;
 
     Compute_Loop:
-        for(int c_c=-385; c_c<16384; c_c++){
+        for(int counter=0; counter<16384; counter++){
 
-            if( (in_i<rows) && (in_j<cols) )
+            if( (in_i<rows) && (in_j<cols))
                 new_data = img_in[in_i*rows+in_j];
             else
                 new_data = 0;
@@ -55403,13 +55406,13 @@ void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols
             calculation(buffer, threshold, Comp_hard, Comp_soft);
 
 
-            out_en = (out_i>=0) && (out_j<cols);
-            out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
-            if(out_en)
-                write_data(img_out, out_en, out_i*rows+out_j, out_data);
+   out_en = (out_j<cols);
+   out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
+   if(out_en)
+    write_data(img_out, out_en, out_i*rows+out_j, out_data);
 
-            if(out_j==127)
-             out_i += 1;
-            out_j += 1;
+   if(out_j==127)
+    out_i += 1;
+   out_j += 1;
         }
 }

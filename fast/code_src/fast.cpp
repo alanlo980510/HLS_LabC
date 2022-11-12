@@ -18,32 +18,6 @@ void shift_data(DTYPE buffer[N], DTYPE new_data){
 }
 
 
-//void calculation(DTYPE buffer[N], int threshold, Cont_TYPE &Comp_hard, Cont_TYPE &Comp_soft){
-//    #pragma HLS INLINE
-//
-//    int loc_array[16] = {382, 254, 127, 0, 1, 2, 131, 260, 388, 516, 643, 770, 769, 768, 639, 510};
-//    Cont_TYPE acc_hard=0;
-//    Cont_TYPE acc_soft=0;
-//
-//    for(int k=0;k<16;k++){
-//        #pragma HLS UNROLL
-//        if( abs(buffer[385]-buffer[loc_array[k]]) > threshold ){
-//            acc_soft += 1;
-//            if( (k%4) == 0 )
-//                acc_hard += 1;
-////            else
-////                acc_hard += 0;
-//        }
-////        else{
-////            acc_soft += 0;
-////            acc_hard += 0;
-////        }
-//    }
-//    Comp_hard = acc_hard;
-//    Comp_soft = acc_soft;
-//}
-
-
 
 
 void calculation(DTYPE buffer[N], int threshold, Cont_TYPE &Comp_hard, Cont_TYPE &Comp_soft){
@@ -156,14 +130,14 @@ void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols
     DTYPE new_data=0, out_data=0;
     Cont_TYPE Comp_hard, Comp_soft;
 
-    ap_int<10> in_i=0, out_i=-4;
-    ap_uint<7> in_j=0, out_j=127;
+    ap_int<10> in_i=0;
+    ap_uint<7> in_j=0, out_i=124, out_j=127;
     bool out_en;
 
     Compute_Loop:
-        for(int c_c=-385; c_c<16384; c_c++){
+        for(int counter=0; counter<16384; counter++){
             // input new data
-            if( (in_i<rows) && (in_j<cols) )
+            if( (in_i<rows) && (in_j<cols))
                 new_data = img_in[in_i*rows+in_j];
             else
                 new_data = 0;
@@ -177,14 +151,14 @@ void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols
             calculation(buffer, threshold, Comp_hard, Comp_soft);
 
             // write data
-            out_en = (out_i>=0) && (out_j<cols);
-            out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
-            if(out_en)
-                write_data(img_out, out_en, out_i*rows+out_j, out_data);
+			out_en = (out_j<cols);
+			out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
+			if(out_en)
+				write_data(img_out, out_en, out_i*rows+out_j, out_data);
 
-            if(out_j==127)
-            	out_i += 1;
-            out_j += 1;
+			if(out_j==127)
+				out_i += 1;
+			out_j += 1;
         }
 }
 

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'fast_accel_Pipeline_Compute_Loop'" level="0">
-<item name = "Date">Fri Nov 11 20:46:46 2022
+<item name = "Date">Sat Nov 12 18:10:02 2022
 </item>
 <item name = "Version">2022.1 (Build 3526262 on Mon Apr 18 15:48:16 MDT 2022)</item>
 <item name = "Project">fast</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 3.130 ns, 6.70 ns</column>
+<column name="ap_clk">10.00 ns, 3.254 ns, 6.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">16780, 16780, 0.168 ms, 0.168 ms, 16780, 16780, no</column>
+<column name="">16398, 16398, 0.164 ms, 0.164 ms, 16398, 16398, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Compute_Loop">16778, 16778, 11, 1, 1, 16769, yes</column>
+<column name="- Compute_Loop">16396, 16396, 14, 1, 1, 16384, yes</column>
 </table>
 </item>
 </section>

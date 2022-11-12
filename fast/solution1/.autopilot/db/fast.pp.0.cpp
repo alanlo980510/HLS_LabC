@@ -33357,7 +33357,10 @@ void shift_data(DTYPE buffer[771], DTYPE new_data){
     }
     buffer[771 -1] = new_data;
 }
-# 49 "fast/code_src/fast.cpp"
+
+
+
+
 void calculation(DTYPE buffer[771], int threshold, Cont_TYPE &Comp_hard, Cont_TYPE &Comp_soft){
 #pragma HLS INLINE
 
@@ -33462,40 +33465,44 @@ void write_data(DTYPE* img_out, bool out_en, int counter, DTYPE write_data){
 
 
 __attribute__((sdx_kernel("fast_accel", 0))) void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols){
-#line 18 "C:/Users/Alan/Desktop/upload/fast/solution1/csynth.tcl"
+#line 18 "C:/Users/Alan/Desktop/fast/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=fast_accel
-# 152 "fast/code_src/fast.cpp"
+# 126 "fast/code_src/fast.cpp"
 
-#line 8 "C:/Users/Alan/Desktop/upload/fast/solution1/directives.tcl"
-#pragma HLSDIRECTIVE INTERFACE axis register register_mode=both depth=17000 port=img_in
-# 152 "fast/code_src/fast.cpp"
+#line 6 "C:/Users/Alan/Desktop/fast/solution1/directives.tcl"
+#pragma HLSDIRECTIVE TOP name=fast_accel
+# 126 "fast/code_src/fast.cpp"
 
-#line 9 "C:/Users/Alan/Desktop/upload/fast/solution1/directives.tcl"
-#pragma HLSDIRECTIVE INTERFACE axis register register_mode=both depth=17000 port=img_out
-# 152 "fast/code_src/fast.cpp"
+#line 8 "C:/Users/Alan/Desktop/fast/solution1/directives.tcl"
+#pragma HLSDIRECTIVE INTERFACE ap_memory depth=17000 port=img_in
+# 126 "fast/code_src/fast.cpp"
+
+#line 9 "C:/Users/Alan/Desktop/fast/solution1/directives.tcl"
+#pragma HLSDIRECTIVE INTERFACE ap_memory depth=17000 latency=20 port=img_out
+# 126 "fast/code_src/fast.cpp"
 
 
 
     DTYPE buffer[771]={0};
-#line 7 "C:/Users/Alan/Desktop/upload/fast/solution1/directives.tcl"
+#line 14 "C:/Users/Alan/Desktop/fast/solution1/directives.tcl"
 #pragma HLSDIRECTIVE ARRAY_PARTITION variable=buffer complete dim=1
-# 155 "fast/code_src/fast.cpp"
+# 129 "fast/code_src/fast.cpp"
 
     DTYPE new_data=0, out_data=0;
     Cont_TYPE Comp_hard, Comp_soft;
 
-    ap_int<10> in_i=0, out_i=-4;
-    ap_uint<7> in_j=0, out_j=127;
+    ap_int<10> in_i=0;
+    ap_uint<7> in_j=0, out_i=124, out_j=127;
     bool out_en;
 
     Compute_Loop:
-        for(int c_c=-385; c_c<16384; c_c++){
-#line 6 "C:/Users/Alan/Desktop/upload/fast/solution1/directives.tcl"
+        for(int counter=0; counter<16384; counter++){
+#line 12 "C:/Users/Alan/Desktop/fast/solution1/directives.tcl"
 #pragma HLSDIRECTIVE PIPELINE
-# 164 "fast/code_src/fast.cpp"
+# 138 "fast/code_src/fast.cpp"
 
 
-            if( (in_i<rows) && (in_j<cols) )
+            if( (in_i<rows) && (in_j<cols))
                 new_data = img_in[in_i*rows+in_j];
             else
                 new_data = 0;
@@ -33509,13 +33516,13 @@ __attribute__((sdx_kernel("fast_accel", 0))) void fast_accel(DTYPE* img_in, int 
             calculation(buffer, threshold, Comp_hard, Comp_soft);
 
 
-            out_en = (out_i>=0) && (out_j<cols);
-            out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
-            if(out_en)
-                write_data(img_out, out_en, out_i*rows+out_j, out_data);
+   out_en = (out_j<cols);
+   out_data = ((out_i>2)&&(out_i<rows-3)&&(out_j>2)&&(out_j<cols-3)) ? (((Comp_hard>=3)&&(Comp_soft>=12)) ? 255 : 0) : 0;
+   if(out_en)
+    write_data(img_out, out_en, out_i*rows+out_j, out_data);
 
-            if(out_j==127)
-             out_i += 1;
-            out_j += 1;
+   if(out_j==127)
+    out_i += 1;
+   out_j += 1;
         }
 }

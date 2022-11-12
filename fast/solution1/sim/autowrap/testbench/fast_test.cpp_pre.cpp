@@ -1,7 +1,7 @@
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
 
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h" 1 3
 # 10 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
@@ -934,7 +934,7 @@ extern "C" {
 
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h" 1 3
 # 1038 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/x86_64-w64-mingw32/include/stdio.h" 2 3
-# 3 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 2
+# 3 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 2
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/stdlib.h" 1 3
 # 37 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/stdlib.h" 3
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/cstdlib" 1 3
@@ -1789,7 +1789,7 @@ using std::system;
 
 using std::wcstombs;
 using std::wctomb;
-# 4 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 2
+# 4 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 2
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
 # 37 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 3
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/cmath" 1 3
@@ -4328,9 +4328,9 @@ using std::scalbln;
 using std::scalbn;
 using std::tgamma;
 using std::trunc;
-# 5 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 2
+# 5 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 2
 
-# 1 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.h" 1
+# 1 "C:/Users/Alan/Desktop/fast/code_src/fast.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h" 1
 # 56 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55151,7 +55151,7 @@ inline bool operator!=(
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
 # 407 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_int.h" 2
-# 2 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast.h" 2
+# 2 "C:/Users/Alan/Desktop/fast/code_src/fast.h" 2
 
 
 
@@ -55159,7 +55159,7 @@ inline bool operator!=(
 typedef ap_int<9> DTYPE;
 
 void fast_accel(DTYPE* img_in, int threshold, DTYPE* img_out, int rows, int cols);
-# 7 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 2
+# 7 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 2
 
 
 using namespace std;
@@ -55205,38 +55205,38 @@ int main()
     if (tf == 1)
     {
         fprintf(
-# 51 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 51 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 51 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 51 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "*******************************************\n");
         fprintf(
-# 52 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 52 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 52 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 52 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "FAIL: Output DOES NOT match the golden output\n");
         fprintf(
-# 53 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 53 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 53 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 53 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "*******************************************\n");
         return 1;
     }
     else
     {
         fprintf(
-# 58 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 58 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 58 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 58 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "*******************************************\n");
         fprintf(
-# 59 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 59 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 59 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 59 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "PASS: The output matches the golden output!\n");
         fprintf(
-# 60 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp" 3
+# 60 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp" 3
                (&__iob_func()[1])
-# 60 "C:/Users/Alan/Desktop/LabC/fast/code_src/fast_test.cpp"
+# 60 "C:/Users/Alan/Desktop/fast/code_src/fast_test.cpp"
                      , "*******************************************\n");
         return 0;
     }

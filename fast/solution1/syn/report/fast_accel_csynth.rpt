@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'fast_accel'
 ================================================================
-* Date:           Fri Nov 11 20:46:52 2022
+* Date:           Sat Nov 12 18:10:08 2022
 
 * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:48:16 MDT 2022)
 * Project:        fast
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  3.130 ns|     6.70 ns|
+    |ap_clk  |  10.00 ns|  3.254 ns|     6.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
     |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
     +---------+---------+----------+----------+-------+-------+---------+
-    |    16783|    16783|  0.168 ms|  0.168 ms|  16784|  16784|       no|
+    |    16400|    16400|  0.164 ms|  0.164 ms|  16401|  16401|       no|
     +---------+---------+----------+----------+-------+-------+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                            |                                  |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
         |                  Instance                  |              Module              |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
         +--------------------------------------------+----------------------------------+---------+---------+----------+----------+-------+-------+---------+
-        |grp_fast_accel_Pipeline_Compute_Loop_fu_60  |fast_accel_Pipeline_Compute_Loop  |    16780|    16780|  0.168 ms|  0.168 ms|  16780|  16780|       no|
+        |grp_fast_accel_Pipeline_Compute_Loop_fu_54  |fast_accel_Pipeline_Compute_Loop  |    16398|    16398|  0.164 ms|  0.164 ms|  16398|  16398|       no|
         +--------------------------------------------+----------------------------------+---------+---------+----------+----------+-------+-------+---------+
 
         * Loop: 
@@ -54,18 +54,18 @@
 |       Name      | BRAM_18K| DSP |   FF   |  LUT  | URAM|
 +-----------------+---------+-----+--------+-------+-----+
 |DSP              |        -|    -|       -|      -|    -|
-|Expression       |        -|    -|       0|     80|    -|
+|Expression       |        -|    -|       0|     78|    -|
 |FIFO             |        -|    -|       -|      -|    -|
-|Instance         |        -|    -|    7697|   1537|    -|
+|Instance         |        -|    2|    8102|   1688|    -|
 |Memory           |        -|    -|       -|      -|    -|
-|Multiplexer      |        -|    -|       -|     34|    -|
-|Register         |        -|    -|      69|      -|    -|
+|Multiplexer      |        -|    -|       -|     20|    -|
+|Register         |        -|    -|      83|      -|    -|
 +-----------------+---------+-----+--------+-------+-----+
-|Total            |        0|    0|    7766|   1651|    0|
+|Total            |        0|    2|    8185|   1786|    0|
 +-----------------+---------+-----+--------+-------+-----+
 |Available        |      280|  220|  106400|  53200|    0|
 +-----------------+---------+-----+--------+-------+-----+
-|Utilization (%)  |        0|    0|       7|      3|    0|
+|Utilization (%)  |        0|   ~0|       7|      3|    0|
 +-----------------+---------+-----+--------+-------+-----+
 
 + Detail: 
@@ -73,9 +73,9 @@
     +--------------------------------------------+----------------------------------+---------+----+------+------+-----+
     |                  Instance                  |              Module              | BRAM_18K| DSP|  FF  |  LUT | URAM|
     +--------------------------------------------+----------------------------------+---------+----+------+------+-----+
-    |grp_fast_accel_Pipeline_Compute_Loop_fu_60  |fast_accel_Pipeline_Compute_Loop  |        0|   0|  7697|  1537|    0|
+    |grp_fast_accel_Pipeline_Compute_Loop_fu_54  |fast_accel_Pipeline_Compute_Loop  |        0|   2|  8102|  1688|    0|
     +--------------------------------------------+----------------------------------+---------+----+------+------+-----+
-    |Total                                       |                                  |        0|   0|  7697|  1537|    0|
+    |Total                                       |                                  |        0|   2|  8102|  1688|    0|
     +--------------------------------------------+----------------------------------+---------+----+------+------+-----+
 
     * DSP: 
@@ -88,36 +88,35 @@
     N/A
 
     * Expression: 
-    +-----------------------------------------------------------+----------+----+---+----+------------+------------+
-    |                       Variable Name                       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +-----------------------------------------------------------+----------+----+---+----+------------+------------+
-    |op2_assign_1_fu_79_p2                                      |         +|   0|  0|  39|          32|           3|
-    |op2_assign_fu_73_p2                                        |         +|   0|  0|  39|          32|           3|
-    |grp_fast_accel_Pipeline_Compute_Loop_fu_60_img_out_TREADY  |       and|   0|  0|   2|           1|           1|
-    +-----------------------------------------------------------+----------+----+---+----+------------+------------+
-    |Total                                                      |          |   0|  0|  80|          65|           7|
-    +-----------------------------------------------------------+----------+----+---+----+------------+------------+
+    +-----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |op2_assign_1_fu_79_p2  |         +|   0|  0|  39|          32|           3|
+    |op2_assign_fu_73_p2    |         +|   0|  0|  39|          32|           3|
+    +-----------------------+----------+----+---+----+------------+------------+
+    |Total                  |          |   0|  0|  78|          64|           6|
+    +-----------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +----------------------------+----+-----------+-----+-----------+
-    |            Name            | LUT| Input Size| Bits| Total Bits|
-    +----------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                   |  25|          5|    1|          5|
-    |img_in_TREADY_int_regslice  |   9|          2|    1|          2|
-    +----------------------------+----+-----------+-----+-----------+
-    |Total                       |  34|          7|    2|          7|
-    +----------------------------+----+-----------+-----+-----------+
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  20|          4|    1|          4|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  20|          4|    1|          4|
+    +-----------+----+-----------+-----+-----------+
 
     * Register: 
     +---------------------------------------------------------+----+----+-----+-----------+
     |                           Name                          | FF | LUT| Bits| Const Bits|
     +---------------------------------------------------------+----+----+-----+-----------+
-    |ap_CS_fsm                                                |   4|   0|    4|          0|
-    |grp_fast_accel_Pipeline_Compute_Loop_fu_60_ap_start_reg  |   1|   0|    1|          0|
+    |ap_CS_fsm                                                |   3|   0|    3|          0|
+    |grp_fast_accel_Pipeline_Compute_Loop_fu_54_ap_start_reg  |   1|   0|    1|          0|
     |op2_assign_1_reg_105                                     |  32|   0|   32|          0|
     |op2_assign_reg_100                                       |  32|   0|   32|          0|
+    |trunc_ln126_reg_95                                       |  15|   0|   15|          0|
     +---------------------------------------------------------+----+----+-----+-----------+
-    |Total                                                    |  69|   0|   69|          0|
+    |Total                                                    |  83|   0|   83|          0|
     +---------------------------------------------------------+----+----+-----+-----------+
 
 
@@ -126,23 +125,24 @@
 == Interface
 ================================================================
 * Summary: 
-+----------------+-----+-----+------------+--------------+--------------+
-|    RTL Ports   | Dir | Bits|  Protocol  | Source Object|    C Type    |
-+----------------+-----+-----+------------+--------------+--------------+
-|ap_clk          |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|ap_rst_n        |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|ap_start        |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|ap_done         |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|ap_idle         |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|ap_ready        |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
-|img_in_TDATA    |   in|   16|        axis|        img_in|       pointer|
-|img_in_TVALID   |   in|    1|        axis|        img_in|       pointer|
-|img_in_TREADY   |  out|    1|        axis|        img_in|       pointer|
-|threshold       |   in|   32|     ap_none|     threshold|        scalar|
-|img_out_TDATA   |  out|   16|        axis|       img_out|       pointer|
-|img_out_TVALID  |  out|    1|        axis|       img_out|       pointer|
-|img_out_TREADY  |   in|    1|        axis|       img_out|       pointer|
-|rows            |   in|   32|     ap_none|          rows|        scalar|
-|cols            |   in|   32|     ap_none|          cols|        scalar|
-+----------------+-----+-----+------------+--------------+--------------+
++------------------+-----+-----+------------+--------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------+-----+-----+------------+--------------+--------------+
+|ap_clk            |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|ap_rst            |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|ap_start          |   in|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|ap_done           |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|ap_idle           |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|ap_ready          |  out|    1|  ap_ctrl_hs|    fast_accel|  return value|
+|img_in_address0   |  out|   15|   ap_memory|        img_in|         array|
+|img_in_ce0        |  out|    1|   ap_memory|        img_in|         array|
+|img_in_q0         |   in|    9|   ap_memory|        img_in|         array|
+|threshold         |   in|   32|     ap_none|     threshold|        scalar|
+|img_out_address0  |  out|   15|   ap_memory|       img_out|         array|
+|img_out_ce0       |  out|    1|   ap_memory|       img_out|         array|
+|img_out_we0       |  out|    1|   ap_memory|       img_out|         array|
+|img_out_d0        |  out|    9|   ap_memory|       img_out|         array|
+|rows              |   in|   32|     ap_none|          rows|        scalar|
+|cols              |   in|   32|     ap_none|          cols|        scalar|
++------------------+-----+-----+------------+--------------+--------------+
 

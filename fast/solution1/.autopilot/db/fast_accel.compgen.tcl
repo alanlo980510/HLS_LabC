@@ -8,18 +8,18 @@ if {${::AESL::PGuard_autoexp_gen}} {
 }
 
 set axilite_register_dict [dict create]
-# Native AXIS:
+# XIL_BRAM:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 8 \
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 13 \
     name img_in \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
-    corename {} \
-    metadata {  } \
+    dir I \
+    corename img_in \
     op interface \
-    ports { img_in_TDATA { I 16 vector } img_in_TVALID { I 1 bit } img_in_TREADY { O 1 bit } } \
+    ports { img_in_address0 { O 15 vector } img_in_ce0 { O 1 bit } img_in_q0 { I 9 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'img_in'"
@@ -27,18 +27,18 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
-# Native AXIS:
+# XIL_BRAM:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
-eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 10 \
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 15 \
     name img_out \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
-    corename {} \
-    metadata {  } \
+    dir O \
+    corename img_out \
     op interface \
-    ports { img_out_TDATA { O 16 vector } img_out_TVALID { O 1 bit } img_out_TREADY { I 1 bit } } \
+    ports { img_out_address0 { O 15 vector } img_out_ce0 { O 1 bit } img_out_we0 { O 1 bit } img_out_d0 { O 9 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'img_out'"
@@ -49,11 +49,11 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 9 \
+    id 14 \
     name threshold \
     type other \
     dir I \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
     corename dc_threshold \
     op interface \
@@ -64,11 +64,11 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 11 \
+    id 16 \
     name rows \
     type other \
     dir I \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
     corename dc_rows \
     op interface \
@@ -79,11 +79,11 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 12 \
+    id 17 \
     name cols \
     type other \
     dir I \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
     corename dc_cols \
     op interface \
@@ -97,7 +97,7 @@ eval "cg_default_interface_gen_dc { \
     id -1 \
     name ap_ctrl \
     type ap_ctrl \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
     corename ap_ctrl \
     op interface \
@@ -114,7 +114,7 @@ if {[info proc cg_default_interface_gen_clock] == "cg_default_interface_gen_cloc
 eval "cg_default_interface_gen_clock { \
     id -2 \
     name ${PortName} \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
     corename apif_ap_clk \
     data_wd ${DataWd} \
@@ -127,16 +127,16 @@ puts "@W \[IMPL-113\] Cannot find bus interface model in the library. Ignored ge
 
 
 # Adapter definition:
-set PortName ap_rst_n
+set PortName ap_rst
 set DataWd 1 
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc cg_default_interface_gen_reset] == "cg_default_interface_gen_reset"} {
 eval "cg_default_interface_gen_reset { \
     id -3 \
     name ${PortName} \
-    reset_level 0 \
+    reset_level 1 \
     sync_rst true \
-    corename apif_ap_rst_n \
+    corename apif_ap_rst \
     data_wd ${DataWd} \
     op interface \
 }"
@@ -152,52 +152,6 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
-}
-
-
-# RegSlice definition:
-set ID 13
-set RegSliceName fast_accel_regslice_both
-set RegSliceInstName fast_accel_regslice_both_U
-set CoreName ap_simcore_fast_accel_regslice_both
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
-}
-
-
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
-    name ${RegSliceName} \
-    prefix fast_accel_ \
-    sliceTypeList 0\
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
-}
-}
-
-
-# RegSlice definition:
-set ID 14
-set RegSliceName fast_accel_regslice_both
-set RegSliceInstName fast_accel_regslice_both_U
-set CoreName ap_simcore_fast_accel_regslice_both
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
-}
-
-
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
-eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
-    name ${RegSliceName} \
-    prefix fast_accel_ \
-    sliceTypeList 0\
-}"
-} else {
-puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
-}
 }
 
 
