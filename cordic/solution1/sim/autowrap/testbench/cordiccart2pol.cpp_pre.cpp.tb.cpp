@@ -3,11 +3,11 @@
 // Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
-# 1 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.cpp"
+# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.cpp"
-# 1 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.h" 1
+# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp"
+# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 1
 # 55 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55229,7 +55229,7 @@ inline bool operator!=(
 
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
-# 2 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.h" 2
+# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 2
 
 
 
@@ -55243,7 +55243,7 @@ typedef float acc_t;
 typedef ap_fixed<15, 3, AP_RND_MIN_INF> data_t;
 
 void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta);
-# 2 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.cpp" 2
+# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp" 2
 
 
 
@@ -55409,5 +55409,5 @@ apatb_cordiccart2pol_ir(((struct __cosim_s1__*)&x), ((struct __cosim_s2__*)&y), 
 return ;
 }
 #endif
-# 144 "C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.cpp"
+# 144 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp"
 

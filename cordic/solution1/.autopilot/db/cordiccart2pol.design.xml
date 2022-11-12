@@ -22,17 +22,17 @@
 </Loops>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
-<TargetClockPeriod>10.00</TargetClockPeriod>
-<ClockUncertainty>5.39</ClockUncertainty>
+<TargetClockPeriod>1000.00</TargetClockPeriod>
+<ClockUncertainty>995.39</ClockUncertainty>
 <EstimatedClockPeriod>4.606</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>13</Best-caseLatency>
 <Average-caseLatency>13</Average-caseLatency>
 <Worst-caseLatency>13</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.130 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.130 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.130 us</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>13.000 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>13.000 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.000 us</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>13</PipelineInitiationInterval>
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
@@ -41,7 +41,7 @@
 <Name>cordic_loop</Name>
 <TripCount>11</TripCount>
 <Latency>11</Latency>
-<AbsoluteTimeLatency>0.110 us</AbsoluteTimeLatency>
+<AbsoluteTimeLatency>11.000 us</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 <PipelineType>yes</PipelineType>
@@ -208,17 +208,17 @@
 <Name>cordiccart2pol</Name>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
-<TargetClockPeriod>10.00</TargetClockPeriod>
-<ClockUncertainty>5.39</ClockUncertainty>
+<TargetClockPeriod>1000.00</TargetClockPeriod>
+<ClockUncertainty>995.39</ClockUncertainty>
 <EstimatedClockPeriod>4.606</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>16</Best-caseLatency>
 <Average-caseLatency>16</Average-caseLatency>
 <Worst-caseLatency>16</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.160 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.160 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.160 us</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>16.000 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>16.000 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>16.000 us</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>17</PipelineInitiationInterval>
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>

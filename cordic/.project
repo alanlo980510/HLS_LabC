@@ -29,47 +29,47 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/.apc/.src</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/.apc/.tb</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/solution1/.tcls</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/cordiccart2pol.cpp</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.cpp</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp</location>
 		</link>
 		<link>
 			<name>source/cordiccart2pol.h</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol.h</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h</location>
 		</link>
 		<link>
 			<name>testbench/cordiccart2pol_test.cpp</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/code_src/cordiccart2pol_test.cpp</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/solution1/solution1.directive</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/solution1/directives.tcl</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>C:/Users/Alan/Desktop/LabC/cordic/solution1/script.tcl</location>
+			<location>C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

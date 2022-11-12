@@ -6,7 +6,7 @@
           "label": "",
           "functionLabel": "",
           "id": "1",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
           "sourceLine": "6",
           "pragma": {
             "name": "TOP",
@@ -21,7 +21,7 @@
           "label": "cordic_loop",
           "functionLabel": "",
           "id": "2",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
           "sourceLine": "7",
           "pragma": {"name": "PIPELINE"}
         },
@@ -30,7 +30,7 @@
           "label": "",
           "functionLabel": "",
           "id": "3",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/directives.tcl",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
           "sourceLine": "8",
           "pragma": {
             "name": "ARRAY_PARTITION",
@@ -55,7 +55,7 @@
           "label": "",
           "functionLabel": "",
           "id": "4",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/upload\/cordic\/solution1\/csynth.tcl",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/csynth.tcl",
           "sourceLine": "16",
           "pragma": {
             "name": "TOP",

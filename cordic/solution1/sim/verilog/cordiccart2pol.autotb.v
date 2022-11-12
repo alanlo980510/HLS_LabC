@@ -13,7 +13,7 @@
 `define AUTOTB_PER_RESULT_TRANS_FILE "cordiccart2pol.performance.result.transaction.xml"
 `define AUTOTB_TOP_INST AESL_inst_apatb_cordiccart2pol_top
 `define AUTOTB_MAX_ALLOW_LATENCY  15000000
-`define AUTOTB_CLOCK_PERIOD_DIV2 5.00
+`define AUTOTB_CLOCK_PERIOD_DIV2 500.00
 
 `define AESL_DEPTH_x 1
 `define AESL_DEPTH_y 1

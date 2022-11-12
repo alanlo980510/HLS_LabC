@@ -6492,15 +6492,15 @@ data_t angles[11] = { 0.785398163397448, 0.463647609000806, 0.244978663126864, 0
 
 
 __attribute__((sdx_kernel("cordiccart2pol", 0))) void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta){
-#line 16 "C:/Users/Alan/Desktop/upload/cordic/solution1/csynth.tcl"
+#line 16 "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/csynth.tcl"
 #pragma HLSDIRECTIVE TOP name=cordiccart2pol
 # 10 "cordic/code_src/cordiccart2pol.cpp"
 
-#line 6 "C:/Users/Alan/Desktop/upload/cordic/solution1/directives.tcl"
+#line 6 "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/directives.tcl"
 #pragma HLSDIRECTIVE TOP name=cordiccart2pol
 # 10 "cordic/code_src/cordiccart2pol.cpp"
 
-#line 8 "C:/Users/Alan/Desktop/upload/cordic/solution1/directives.tcl"
+#line 8 "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/directives.tcl"
 #pragma HLSDIRECTIVE ARRAY_PARTITION variable=angles complete dim=1
 # 10 "cordic/code_src/cordiccart2pol.cpp"
 
@@ -6522,7 +6522,7 @@ __attribute__((sdx_kernel("cordiccart2pol", 0))) void cordiccart2pol(data_t x, d
 
  cordic_loop:
  for(int i=0;i<11;i++){
-#line 7 "C:/Users/Alan/Desktop/upload/cordic/solution1/directives.tcl"
+#line 7 "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/directives.tcl"
 #pragma HLSDIRECTIVE PIPELINE
 # 28 "cordic/code_src/cordiccart2pol.cpp"
 

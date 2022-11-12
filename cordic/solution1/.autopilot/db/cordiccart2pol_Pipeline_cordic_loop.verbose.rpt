@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'cordiccart2pol_Pipeline_cordic_loop'
 ================================================================
-* Date:           Fri Nov 11 21:01:53 2022
+* Date:           Sat Nov 12 20:31:04 2022
 
 * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:48:16 MDT 2022)
 * Project:        cordic
@@ -17,20 +17,20 @@
 ================================================================
 + Timing: 
     * Summary: 
-    +--------+----------+----------+------------+
-    |  Clock |  Target  | Estimated| Uncertainty|
-    +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  4.606 ns|     5.39 ns|
-    +--------+----------+----------+------------+
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  1.00 us|  4.606 ns|     1.00 us|
+    +--------+---------+----------+------------+
 
 + Latency: 
     * Summary: 
-    +---------+---------+----------+----------+-----+-----+---------+
-    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-    |   min   |   max   |    min   |    max   | min | max |   Type  |
-    +---------+---------+----------+----------+-----+-----+---------+
-    |       13|       13|  0.130 us|  0.130 us|   13|   13|       no|
-    +---------+---------+----------+----------+-----+-----+---------+
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       13|       13|  13.000 us|  13.000 us|   13|   13|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
@@ -236,7 +236,7 @@ ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ss
 ST_2 : Operation 21 [1/1] (1.73ns)   --->   "%add_ln28 = add i4 %i_1, i4 1" [cordic/code_src/cordiccart2pol.cpp:28]   --->   Operation 21 'add' 'add_ln28' <Predicate = true> <Delay = 1.73> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln28 = br i1 %icmp_ln28, void %for.body.split, void %_ZNK13ap_fixed_baseILi15ELi3ELb1EL9ap_q_mode2EL9ap_o_mode3ELi0EErsEi.exit423_ifconv.exitStub" [cordic/code_src/cordiccart2pol.cpp:28]   --->   Operation 22 'br' 'br_ln28' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln28 = trunc i15 %y_cordic_V_1" [cordic/code_src/cordiccart2pol.cpp:28]   --->   Operation 23 'trunc' 'trunc_ln28' <Predicate = (!icmp_ln28)> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln7 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [C:/Users/Alan/Desktop/upload/cordic/solution1/directives.tcl:7]   --->   Operation 24 'specpipeline' 'specpipeline_ln7' <Predicate = (!icmp_ln28)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specpipeline_ln7 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0" [C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/directives.tcl:7]   --->   Operation 24 'specpipeline' 'specpipeline_ln7' <Predicate = (!icmp_ln28)> <Delay = 0.00>
 ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%specloopname_ln2422 = specloopname void @_ssdm_op_SpecLoopName, void @empty_2"   --->   Operation 25 'specloopname' 'specloopname_ln2422' <Predicate = (!icmp_ln28)> <Delay = 0.00>
 ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i15.i32, i15 %y_cordic_V_1, i32 14"   --->   Operation 26 'bitselect' 'tmp_2' <Predicate = (!icmp_ln28)> <Delay = 0.00>
 ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln31 = br i1 %tmp_2, void %if.then7, void %if.else61" [cordic/code_src/cordiccart2pol.cpp:31]   --->   Operation 27 'br' 'br_ln31' <Predicate = (!icmp_ln28)> <Delay = 0.00>

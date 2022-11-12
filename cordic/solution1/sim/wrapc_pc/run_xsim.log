@@ -9,26 +9,26 @@ Test: x=-0.4854, y=0.7002, golden theta=2.1769, golden r=0.8521, your theta=2.17
 0.000833866593894 0.000633431132883
 ----------------------------------------------
 
-C:\Users\Alan\Desktop\LabC\cordic\solution1\sim\verilog>set PATH= 
+C:\Users\Alan\Desktop\HLS_LabC\cordic\solution1\sim\verilog>set PATH= 
 
-C:\Users\Alan\Desktop\LabC\cordic\solution1\sim\verilog>call C:/Xilinx/Vivado/2022.1/bin/xelab xil_defaultlib.apatb_cordiccart2pol_top glbl -Oenable_linking_all_libraries  -prj cordiccart2pol.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_0_20 -L floating_point_v7_1_14 --lib "ieee_proposed=./ieee_proposed" -s cordiccart2pol -debug wave 
+C:\Users\Alan\Desktop\HLS_LabC\cordic\solution1\sim\verilog>call C:/Xilinx/Vivado/2022.1/bin/xelab xil_defaultlib.apatb_cordiccart2pol_top glbl -Oenable_linking_all_libraries  -prj cordiccart2pol.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_0_20 -L floating_point_v7_1_14 --lib "ieee_proposed=./ieee_proposed" -s cordiccart2pol -debug wave 
 Vivado Simulator v2022.1
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2022.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_cordiccart2pol_top glbl -Oenable_linking_all_libraries -prj cordiccart2pol.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_20 -L floating_point_v7_1_14 --lib ieee_proposed=./ieee_proposed -s cordiccart2pol -debug wave 
 Multi-threading is on. Using 6 slave threads.
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/glbl.v" into library work
 INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module apatb_cordiccart2pol_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cordiccart2pol
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol_cordiccart2pol_Pipeline_cordic_loop.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol_cordiccart2pol_Pipeline_cordic_loop.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cordiccart2pol_cordiccart2pol_Pipeline_cordic_loop
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cordiccart2pol_flow_control_loop_pipe_sequential_init
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol_mux_114_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol_mux_114_15_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cordiccart2pol_mux_114_15_1_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module dataflow_monitor
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -90,15 +90,15 @@ source cordiccart2pol.tcl
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 4 [0.00%] @ "125000"
-// RTL Simulation : 1 / 4 [100.00%] @ "295000"
-// RTL Simulation : 2 / 4 [100.00%] @ "455000"
-// RTL Simulation : 3 / 4 [100.00%] @ "615000"
-// RTL Simulation : 4 / 4 [100.00%] @ "775000"
+// RTL Simulation : 0 / 4 [0.00%] @ "2500000"
+// RTL Simulation : 1 / 4 [100.00%] @ "19500000"
+// RTL Simulation : 2 / 4 [100.00%] @ "35500000"
+// RTL Simulation : 3 / 4 [100.00%] @ "51500000"
+// RTL Simulation : 4 / 4 [100.00%] @ "67500000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 835 ns : File "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" Line 402
+$finish called at time : 73500 ns : File "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" Line 402
 ## quit
-INFO: [Common 17-206] Exiting xsim at Fri Nov 11 21:20:34 2022...
+INFO: [Common 17-206] Exiting xsim at Sat Nov 12 20:31:48 2022...
 ---Testing results----------------------------------
 Test: x=0.8147, y=0.1270, golden theta=0.1545, golden r=0.8245, your theta=0.1553, your r=0.8257
 Test: x=0.6323, y=-0.2786, golden theta=-0.4149, golden r=0.6909, your theta=-0.4141, your r=0.6914

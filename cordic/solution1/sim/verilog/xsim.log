@@ -2,12 +2,12 @@
 # xsim v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Fri Nov 11 21:20:32 2022
-# Process ID: 2068
-# Current directory: C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog
+# Start of session at: Sat Nov 12 20:31:46 2022
+# Process ID: 16496
+# Current directory: C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog
 # Command line: xsim.exe -mode tcl -source {xsim.dir/cordiccart2pol/xsim_script.tcl}
-# Log file: C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/xsim.log
-# Journal file: C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog\xsim.jou
+# Log file: C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/xsim.log
+# Journal file: C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog\xsim.jou
 # Running On: Alan-lab, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 4, Host memory: 25646 MB
 #-----------------------------------------------------------
 source xsim.dir/cordiccart2pol/xsim_script.tcl
@@ -47,12 +47,12 @@ source cordiccart2pol.tcl
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 4 [0.00%] @ "125000"
-// RTL Simulation : 1 / 4 [100.00%] @ "295000"
-// RTL Simulation : 2 / 4 [100.00%] @ "455000"
-// RTL Simulation : 3 / 4 [100.00%] @ "615000"
-// RTL Simulation : 4 / 4 [100.00%] @ "775000"
+// RTL Simulation : 0 / 4 [0.00%] @ "2500000"
+// RTL Simulation : 1 / 4 [100.00%] @ "19500000"
+// RTL Simulation : 2 / 4 [100.00%] @ "35500000"
+// RTL Simulation : 3 / 4 [100.00%] @ "51500000"
+// RTL Simulation : 4 / 4 [100.00%] @ "67500000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 835 ns : File "C:/Users/Alan/Desktop/LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" Line 402
+$finish called at time : 73500 ns : File "C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/sim/verilog/cordiccart2pol.autotb.v" Line 402
 ## quit
-INFO: [Common 17-206] Exiting xsim at Fri Nov 11 21:20:34 2022...
+INFO: [Common 17-206] Exiting xsim at Sat Nov 12 20:31:48 2022...

@@ -70,7 +70,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1031040613</coreId>
+						<coreId>1953391988</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -106,7 +106,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1697540421</coreId>
+						<coreId>1631145029</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -142,7 +142,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1031040613</coreId>
+						<coreId>1953391988</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -182,7 +182,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1940</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -336,7 +336,7 @@
 						<id>18</id>
 						<name>tmp</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1697</lineNumber>
 						<contextFuncName>operator&amp;gt;=&amp;lt;32, 32, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_ge_32_32_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -344,7 +344,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="11" tracking_level="0" version="0">
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second class_id="12" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -394,7 +394,7 @@
 						<id>19</id>
 						<name>x_cordic_V</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>859</lineNumber>
 						<contextFuncName>operator=&amp;lt;16, 4, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_assign_16_4_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -402,7 +402,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -451,7 +451,7 @@
 						<id>20</id>
 						<name>y_cordic_V</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>859</lineNumber>
 						<contextFuncName>operator=&amp;lt;16, 4, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_assign_16_4_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -459,7 +459,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -508,7 +508,7 @@
 						<id>21</id>
 						<name>select_ln1697</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1697</lineNumber>
 						<contextFuncName>operator&amp;gt;=&amp;lt;32, 32, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_ge_32_32_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -516,7 +516,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -566,7 +566,7 @@
 						<id>22</id>
 						<name>select_ln1697_1</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1697</lineNumber>
 						<contextFuncName>operator&amp;gt;=&amp;lt;32, 32, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_ge_32_32_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -574,7 +574,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -624,7 +624,7 @@
 						<id>23</id>
 						<name>_ln1697</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1697</lineNumber>
 						<contextFuncName>operator&amp;gt;=&amp;lt;32, 32, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_ge_32_32_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -632,7 +632,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -700,7 +700,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>741487420</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -770,7 +770,7 @@
 						<id>26</id>
 						<name>r_1</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -778,7 +778,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -800,7 +800,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3620</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -829,7 +829,7 @@
 						<id>27</id>
 						<name>sext_ln1534</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -837,7 +837,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -885,7 +885,7 @@
 						<id>28</id>
 						<name>r_2</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -893,7 +893,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -944,7 +944,7 @@
 						<id>29</id>
 						<name>sext_ln1534_1</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -952,7 +952,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -974,7 +974,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2822444127</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -1000,7 +1000,7 @@
 						<id>30</id>
 						<name>r_3</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -1008,7 +1008,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1030,7 +1030,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>857746485</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -1059,7 +1059,7 @@
 						<id>31</id>
 						<name>sext_ln1534_2</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -1067,7 +1067,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1089,7 +1089,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2035569210</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -1115,7 +1115,7 @@
 						<id>32</id>
 						<name>r_V</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -1123,7 +1123,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1145,7 +1145,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1717530721</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>6</bitwidth>
@@ -1174,7 +1174,7 @@
 						<id>33</id>
 						<name>sext_ln1534_3</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1534</lineNumber>
 						<contextFuncName>operator&amp;gt;&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_rs</contextNormFuncName>
@@ -1182,7 +1182,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1204,7 +1204,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>694510703</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -1230,7 +1230,7 @@
 						<id>34</id>
 						<name>add_ln1394</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1394</lineNumber>
 						<contextFuncName>operator-&amp;lt;15, 3, true, AP_RND_MIN_INF, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_sub_15_3_true_AP_RND_MIN_INF_AP_WRAP_0</contextNormFuncName>
@@ -1238,7 +1238,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1287,7 +1287,7 @@
 						<id>35</id>
 						<name>sub_ln1394</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1394</lineNumber>
 						<contextFuncName>operator-&amp;lt;15, 3, true, AP_RND_MIN_INF, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_sub_15_3_true_AP_RND_MIN_INF_AP_WRAP_0</contextNormFuncName>
@@ -1295,7 +1295,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1344,7 +1344,7 @@
 						<id>36</id>
 						<name>sub_ln859</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>859</lineNumber>
 						<contextFuncName>operator=&amp;lt;18, 6, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_assign_18_6_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -1352,7 +1352,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1401,7 +1401,7 @@
 						<id>37</id>
 						<name>r_write_ln138</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>138</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1409,7 +1409,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1431,7 +1431,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1948265523</coreId>
+						<coreId>741487420</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1459,7 +1459,7 @@
 						<id>38</id>
 						<name>tmp_3</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>141</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1467,7 +1467,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1489,7 +1489,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>841573732</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1517,7 +1517,7 @@
 						<id>39</id>
 						<name>select_ln141</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>141</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1525,7 +1525,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1575,7 +1575,7 @@
 						<id>40</id>
 						<name>add_ln141</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>141</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1583,7 +1583,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1632,7 +1632,7 @@
 						<id>41</id>
 						<name>select_ln1697_2</name>
 						<fileName>C:/Xilinx/Vitis_HLS/2022.1/common/technology/autopilot\ap_fixed_base.h</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>1697</lineNumber>
 						<contextFuncName>operator&amp;gt;=&amp;lt;32, 32, true, AP_TRN, AP_WRAP, 0&amp;gt;</contextFuncName>
 						<contextNormFuncName>operator_ge_32_32_true_AP_TRN_AP_WRAP_0</contextNormFuncName>
@@ -1640,7 +1640,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1690,7 +1690,7 @@
 						<id>42</id>
 						<name>theta_write_ln139</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>139</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1698,7 +1698,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1720,7 +1720,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>741550437</coreId>
+						<coreId>892419172</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1748,7 +1748,7 @@
 						<id>43</id>
 						<name>_ln144</name>
 						<fileName>cordic/code_src/cordiccart2pol.cpp</fileName>
-						<fileDirectory>C:\Users\Alan\Desktop\upload</fileDirectory>
+						<fileDirectory>C:\Users\Alan\Desktop\HLS_LabC</fileDirectory>
 						<lineNumber>144</lineNumber>
 						<contextFuncName></contextFuncName>
 						<contextNormFuncName></contextNormFuncName>
@@ -1756,7 +1756,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>C:\Users\Alan\Desktop\upload</first>
+								<first>C:\Users\Alan\Desktop\HLS_LabC</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1778,7 +1778,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1948265523</coreId>
+						<coreId>741421371</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1823,7 +1823,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1953391988</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1854,7 +1854,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>845505647</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1885,7 +1885,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1031040613</coreId>
+						<coreId>1885419852</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -1916,7 +1916,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>845505647</coreId>
+						<coreId>1953391988</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1947,7 +1947,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>539767593</coreId>
+						<coreId>1279603301</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1978,7 +1978,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>694510703</coreId>
+						<coreId>828984393</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2009,7 +2009,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>841573732</coreId>
+						<coreId>1601265520</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2040,7 +2040,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>841573732</coreId>
+						<coreId>1680154734</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2071,7 +2071,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>542329928</coreId>
+						<coreId>1702195828</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>
@@ -2102,7 +2102,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869438831</coreId>
+						<coreId>1768713801</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>15</bitwidth>

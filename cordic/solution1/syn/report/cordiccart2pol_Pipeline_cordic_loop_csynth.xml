@@ -9,8 +9,8 @@
 <ProductFamily>zynq</ProductFamily>
 <Part>xc7z020-clg400-1</Part>
 <TopModelName>cordiccart2pol_Pipeline_cordic_loop</TopModelName>
-<TargetClockPeriod>10.00</TargetClockPeriod>
-<ClockUncertainty>5.39</ClockUncertainty>
+<TargetClockPeriod>1000.00</TargetClockPeriod>
+<ClockUncertainty>995.39</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
@@ -25,9 +25,9 @@
 <Best-caseLatency>13</Best-caseLatency>
 <Average-caseLatency>13</Average-caseLatency>
 <Worst-caseLatency>13</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.130 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.130 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.130 us</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>13.000 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>13.000 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.000 us</Worst-caseRealTimeLatency>
 <Interval-min>13</Interval-min>
 <Interval-max>13</Interval-max>
 </SummaryOfOverallLatency>
@@ -35,7 +35,7 @@
 <cordic_loop>
 <TripCount>11</TripCount>
 <Latency>11</Latency>
-<AbsoluteTimeLatency>110</AbsoluteTimeLatency>
+<AbsoluteTimeLatency>11000</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>2</PipelineDepth>
 <InstanceList>
