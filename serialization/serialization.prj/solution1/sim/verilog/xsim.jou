@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# xsim v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Sat Nov 12 21:56:50 2022
+# Process ID: 28068
+# Current directory: C:/Xilinx/Vitis_HLS/2022.1/serialization/serialization.prj/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/dut/xsim_script.tcl}
+# Log file: C:/Xilinx/Vitis_HLS/2022.1/serialization/serialization.prj/solution1/sim/verilog/xsim.log
+# Journal file: C:/Xilinx/Vitis_HLS/2022.1/serialization/serialization.prj/solution1/sim/verilog\xsim.jou
+# Running On: DESKTOP-B6S694L, OS: Windows, CPU Frequency: 3408 MHz, CPU Physical cores: 4, Host memory: 34224 MB
+#-----------------------------------------------------------
+source xsim.dir/dut/xsim_script.tcl
+open_wave_config dut_dataflow_ana.wcfg
+source dut.tcl
