@@ -4,9 +4,9 @@
 == Synthesis Summary Report of 'cordiccart2pol'
 ================================================================
 + General Information: 
-    * Date:           Sat Nov 12 20:31:05 2022
+    * Date:           Sun Nov 13 17:45:40 2022
     * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:48:16 MDT 2022)
-    * Project:        cordic
+    * Project:        cordic_v5
     * Solution:       solution1 (Vivado IP Flow Target)
     * Product family: zynq
     * Target device:  xc7z020-clg400-1
@@ -15,14 +15,12 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +----------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+-----------+----------+-----+
-    |                 Modules                | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |    |           |          |     |
-    |                 & Loops                | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT   | URAM|
-    +----------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+-----------+----------+-----+
-    |+ cordiccart2pol                        |     -|  0.00|       16|  1.600e+04|         -|       17|     -|        no|     -|   -|  180 (~0%)|  829 (1%)|    -|
-    | + cordiccart2pol_Pipeline_cordic_loop  |     -|  0.00|       13|  1.300e+04|         -|       13|     -|        no|     -|   -|  114 (~0%)|  634 (1%)|    -|
-    |  o cordic_loop                         |     -|  4.61|       11|  1.100e+04|         2|        1|    11|       yes|     -|   -|          -|         -|    -|
-    +----------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+-----------+----------+-----+
+    +------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |      Modules     |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |      |    |           |           |     |
+    |      & Loops     |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ cordiccart2pol  |  Timing|  -0.87|       14|  1.400e+04|         -|       15|     -|        no|     -|   -|  780 (~0%)|  1597 (3%)|    -|
+    +------------------+--------+-------+---------+-----------+----------+---------+------+----------+------+----+-----------+-----------+-----+
 
 
 ================================================================
@@ -84,23 +82,57 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+----------------------------------------+-----+--------+---------------+-----+--------+---------+
-| Name                                   | DSP | Pragma | Variable      | Op  | Impl   | Latency |
-+----------------------------------------+-----+--------+---------------+-----+--------+---------+
-| + cordiccart2pol                       | 0   |        |               |     |        |         |
-|   x_cordic_V_fu_108_p2                 | -   |        | x_cordic_V    | sub | fabric | 0       |
-|   y_cordic_V_fu_114_p2                 | -   |        | y_cordic_V    | sub | fabric | 0       |
-|   add_ln1394_fu_192_p2                 | -   |        | add_ln1394    | add | fabric | 0       |
-|   add_ln141_fu_213_p2                  | -   |        | add_ln141     | add | fabric | 0       |
-|  + cordiccart2pol_Pipeline_cordic_loop | 0   |        |               |     |        |         |
-|    add_ln28_fu_418_p2                  | -   |        | add_ln28      | add | fabric | 0       |
-|    y_cordic_V_4_fu_641_p2              | -   |        | y_cordic_V_4  | sub | fabric | 0       |
-|    x_cordic_V_1_fu_647_p2              | -   |        | x_cordic_V_1  | add | fabric | 0       |
-|    theta_out_V_3_fu_681_p2             | -   |        | theta_out_V_3 | add | fabric | 0       |
-|    y_cordic_V_3_fu_892_p2              | -   |        | y_cordic_V_3  | add | fabric | 0       |
-|    x_cordic_V_fu_898_p2                | -   |        | x_cordic_V    | sub | fabric | 0       |
-|    theta_out_V_2_fu_932_p2             | -   |        | theta_out_V_2 | sub | fabric | 0       |
-+----------------------------------------+-----+--------+---------------+-----+--------+---------+
++----------------------------+-----+--------+---------------+-----+--------+---------+
+| Name                       | DSP | Pragma | Variable      | Op  | Impl   | Latency |
++----------------------------+-----+--------+---------------+-----+--------+---------+
+| + cordiccart2pol           | 0   |        |               |     |        |         |
+|   x_cordic_V_fu_156_p2     | -   |        | x_cordic_V    | sub | fabric | 0       |
+|   y_cordic_V_fu_162_p2     | -   |        | y_cordic_V    | sub | fabric | 0       |
+|   x_cordic_V_36_fu_200_p2  | -   |        | x_cordic_V_36 | add | fabric | 0       |
+|   y_cordic_V_2_fu_204_p2   | -   |        | y_cordic_V_2  | sub | fabric | 0       |
+|   x_cordic_V_3_fu_208_p2   | -   |        | x_cordic_V_3  | sub | fabric | 0       |
+|   x_cordic_V_5_fu_260_p2   | -   |        | x_cordic_V_5  | add | fabric | 0       |
+|   y_cordic_V_5_fu_265_p2   | -   |        | y_cordic_V_5  | sub | fabric | 0       |
+|   x_cordic_V_6_fu_270_p2   | -   |        | x_cordic_V_6  | sub | fabric | 0       |
+|   y_cordic_V_6_fu_275_p2   | -   |        | y_cordic_V_6  | add | fabric | 0       |
+|   x_cordic_V_8_fu_336_p2   | -   |        | x_cordic_V_8  | add | fabric | 0       |
+|   y_cordic_V_8_fu_341_p2   | -   |        | y_cordic_V_8  | sub | fabric | 0       |
+|   x_cordic_V_9_fu_346_p2   | -   |        | x_cordic_V_9  | sub | fabric | 0       |
+|   y_cordic_V_9_fu_351_p2   | -   |        | y_cordic_V_9  | add | fabric | 0       |
+|   x_cordic_V_11_fu_412_p2  | -   |        | x_cordic_V_11 | add | fabric | 0       |
+|   y_cordic_V_11_fu_417_p2  | -   |        | y_cordic_V_11 | sub | fabric | 0       |
+|   x_cordic_V_12_fu_422_p2  | -   |        | x_cordic_V_12 | sub | fabric | 0       |
+|   y_cordic_V_12_fu_427_p2  | -   |        | y_cordic_V_12 | add | fabric | 0       |
+|   x_cordic_V_14_fu_480_p2  | -   |        | x_cordic_V_14 | add | fabric | 0       |
+|   y_cordic_V_14_fu_485_p2  | -   |        | y_cordic_V_14 | sub | fabric | 0       |
+|   x_cordic_V_15_fu_490_p2  | -   |        | x_cordic_V_15 | sub | fabric | 0       |
+|   y_cordic_V_15_fu_495_p2  | -   |        | y_cordic_V_15 | add | fabric | 0       |
+|   x_cordic_V_17_fu_562_p2  | -   |        | x_cordic_V_17 | add | fabric | 0       |
+|   y_cordic_V_17_fu_567_p2  | -   |        | y_cordic_V_17 | sub | fabric | 0       |
+|   x_cordic_V_18_fu_573_p2  | -   |        | x_cordic_V_18 | sub | fabric | 0       |
+|   y_cordic_V_18_fu_578_p2  | -   |        | y_cordic_V_18 | add | fabric | 0       |
+|   x_cordic_V_20_fu_652_p2  | -   |        | x_cordic_V_20 | add | fabric | 0       |
+|   y_cordic_V_20_fu_658_p2  | -   |        | y_cordic_V_20 | sub | fabric | 0       |
+|   x_cordic_V_21_fu_664_p2  | -   |        | x_cordic_V_21 | sub | fabric | 0       |
+|   y_cordic_V_21_fu_670_p2  | -   |        | y_cordic_V_21 | add | fabric | 0       |
+|   x_cordic_V_23_fu_730_p2  | -   |        | x_cordic_V_23 | add | fabric | 0       |
+|   y_cordic_V_23_fu_736_p2  | -   |        | y_cordic_V_23 | sub | fabric | 0       |
+|   x_cordic_V_24_fu_742_p2  | -   |        | x_cordic_V_24 | sub | fabric | 0       |
+|   y_cordic_V_24_fu_748_p2  | -   |        | y_cordic_V_24 | add | fabric | 0       |
+|   x_cordic_V_26_fu_808_p2  | -   |        | x_cordic_V_26 | add | fabric | 0       |
+|   y_cordic_V_26_fu_814_p2  | -   |        | y_cordic_V_26 | sub | fabric | 0       |
+|   x_cordic_V_27_fu_820_p2  | -   |        | x_cordic_V_27 | sub | fabric | 0       |
+|   y_cordic_V_27_fu_826_p2  | -   |        | y_cordic_V_27 | add | fabric | 0       |
+|   x_cordic_V_29_fu_886_p2  | -   |        | x_cordic_V_29 | add | fabric | 0       |
+|   y_cordic_V_29_fu_892_p2  | -   |        | y_cordic_V_29 | sub | fabric | 0       |
+|   x_cordic_V_30_fu_898_p2  | -   |        | x_cordic_V_30 | sub | fabric | 0       |
+|   y_cordic_V_30_fu_904_p2  | -   |        | y_cordic_V_30 | add | fabric | 0       |
+|   x_cordic_V_32_fu_1013_p2 | -   |        | x_cordic_V_32 | add | fabric | 0       |
+|   x_cordic_V_33_fu_1019_p2 | -   |        | x_cordic_V_33 | sub | fabric | 0       |
+|   add_ln36_5_fu_600_p2     | -   |        | add_ln36_5    | add | fabric | 0       |
+|   add_ln1394_fu_1125_p2    | -   |        | add_ln1394    | add | fabric | 0       |
+|   add_ln55_fu_1184_p2      | -   |        | add_ln55      | add | fabric | 0       |
++----------------------------+-----+--------+---------------+-----+--------+---------+
 
 
 ================================================================
@@ -112,11 +144,10 @@
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+-----------------+--------------------------------+-------------------------------------------------------------+
-| Type            | Options                        | Location                                                    |
-+-----------------+--------------------------------+-------------------------------------------------------------+
-| array_partition | variable=angles complete dim=1 | cordic/solution1/directives.tcl:8 in cordiccart2pol, angles |
-| pipeline        |                                | cordic/solution1/directives.tcl:7 in cordiccart2pol         |
-+-----------------+--------------------------------+-------------------------------------------------------------+
++--------+---------+--------------------------------------------------------+
+| Type   | Options | Location                                               |
++--------+---------+--------------------------------------------------------+
+| unroll |         | cordic_v5/solution1/directives.tcl:6 in cordiccart2pol |
++--------+---------+--------------------------------------------------------+
 
 

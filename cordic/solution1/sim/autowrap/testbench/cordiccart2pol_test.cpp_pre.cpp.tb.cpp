@@ -3,11 +3,11 @@
 // Tool Version Limit: 2022.04
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 1
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 1
 # 55 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55229,8 +55229,7 @@ inline bool operator!=(
 
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 2
-
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 2
 
 
 
@@ -55243,9 +55242,9 @@ typedef float acc_t;
 typedef ap_fixed<15, 3, AP_RND_MIN_INF> data_t;
 
 void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta);
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp" 2
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp" 2
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
-# 3 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp" 2
+# 3 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp" 2
 
 
 
@@ -55278,7 +55277,7 @@ Rmse rmse_r;
 extern "C"
 #endif
 void apatb_cordiccart2pol_sw(ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>, ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>, ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0> *, ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0> *);
-# 29 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 29 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 void run_test(data_t x, data_t y, double golden_theta, double golden_r)
 {
  data_t r;
@@ -55288,10 +55287,10 @@ void run_test(data_t x, data_t y, double golden_theta, double golden_r)
 #ifndef HLS_FASTSIM
 #define cordiccart2pol apatb_cordiccart2pol_sw
 #endif
-# 34 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 34 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 cordiccart2pol(x, y, &r, &theta);
 #undef cordiccart2pol
-# 34 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 34 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 
 
  printf("Test: x=%.4f, y=%.4f, golden theta=%.4f, golden r=%.4f, your theta=%.4f, your r=%.4f\n",
@@ -55301,7 +55300,7 @@ cordiccart2pol(x, y, &r, &theta);
  rmse_r.add_value((float)r - golden_r);
 }
 #endif
-# 41 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 41 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 
 
 

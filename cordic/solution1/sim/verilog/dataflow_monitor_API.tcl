@@ -17,8 +17,6 @@ proc df_record_move {} {
     }
     exec zip process.zip -m {*}[glob -nocomplain status*.csv module_status*.csv]
     df_move_file_type "process.zip" $process_record_directory
-    exec zip loop.zip -m {*}[glob -nocomplain *_loop_status*.csv]
-    df_move_file_type "loop.zip" $loop_record_directory
 }
 
 proc df_move_file_type {file_format target_dir} {

@@ -1,8 +1,8 @@
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 1
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 1
 # 55 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55224,8 +55224,7 @@ inline bool operator!=(
 
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 2
-
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 2
 
 
 
@@ -55238,7 +55237,7 @@ typedef float acc_t;
 typedef ap_fixed<15, 3, AP_RND_MIN_INF> data_t;
 
 void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta);
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.cpp" 2
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.cpp" 2
 
 
 
@@ -55247,9 +55246,15 @@ data_t angles[11] = { 0.785398163397448, 0.463647609000806, 0.244978663126864, 0
        0.00390623013196697, 0.00195312251647882, 0.000976562189559320};
 
 
+
+
+
+
+
 void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta){
  data_t theta_out=0;
- data_t x_cordic, y_cordic, x_temp;
+ data_t x_cordic, y_cordic, x_shift, y_shift;
+
 
 
  if(x>=0){
@@ -55261,121 +55266,29 @@ void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta){
   y_cordic = -y;
  }
 
- x_temp = x_cordic;
-
 
  cordic_loop:
  for(int i=0;i<11;i++){
-
+  x_shift = y_cordic >> i;
+  y_shift = x_cordic >> i;
 
   if(y_cordic>=0){
-   switch(i){
-    case 0:
-     x_cordic += y_cordic;
-     y_cordic -= x_temp;
-     break;
-    case 1:
-     x_cordic += (y_cordic>>1);
-     y_cordic -= (x_temp>>1);
-     break;
-    case 2:
-     x_cordic += (y_cordic>>2);
-     y_cordic -= (x_temp>>2);
-     break;
-    case 3:
-     x_cordic += (y_cordic>>3);
-     y_cordic -= (x_temp>>3);
-     break;
-    case 4:
-     x_cordic += (y_cordic>>4);
-     y_cordic -= (x_temp>>4);
-     break;
-    case 5:
-     x_cordic += (y_cordic>>5);
-     y_cordic -= (x_temp>>5);
-     break;
-    case 6:
-     x_cordic += (y_cordic>>6);
-     y_cordic -= (x_temp>>6);
-     break;
-    case 7:
-     x_cordic += (y_cordic>>7);
-     y_cordic -= (x_temp>>7);
-     break;
-    case 8:
-     x_cordic += (y_cordic>>8);
-     y_cordic -= (x_temp>>8);
-     break;
-    case 9:
-     x_cordic += (y_cordic>>9);
-     y_cordic -= (x_temp>>9);
-     break;
-    case 10:
-     x_cordic += (y_cordic>>10);
-     y_cordic -= (x_temp>>10);
-     break;
-    default:
-     break;
-   }
+   x_cordic += x_shift;
+   y_cordic -= y_shift;
    theta_out += angles[i];
   }
   else{
-   switch(i){
-    case 0:
-     x_cordic -= y_cordic;
-     y_cordic += x_temp;
-     break;
-    case 1:
-     x_cordic -= (y_cordic>>1);
-     y_cordic += (x_temp>>1);
-     break;
-    case 2:
-     x_cordic -= (y_cordic>>2);
-     y_cordic += (x_temp>>2);
-     break;
-    case 3:
-     x_cordic -= (y_cordic>>3);
-     y_cordic += (x_temp>>3);
-     break;
-    case 4:
-     x_cordic -= (y_cordic>>4);
-     y_cordic += (x_temp>>4);
-     break;
-    case 5:
-     x_cordic -= (y_cordic>>5);
-     y_cordic += (x_temp>>5);
-     break;
-    case 6:
-     x_cordic -= (y_cordic>>6);
-     y_cordic += (x_temp>>6);
-     break;
-    case 7:
-     x_cordic -= (y_cordic>>7);
-     y_cordic += (x_temp>>7);
-     break;
-    case 8:
-     x_cordic -= (y_cordic>>8);
-     y_cordic += (x_temp>>8);
-     break;
-    case 9:
-     x_cordic -= (y_cordic>>9);
-     y_cordic += (x_temp>>9);
-     break;
-    case 10:
-     x_cordic -= (y_cordic>>10);
-     y_cordic += (x_temp>>10);
-     break;
-    default:
-     break;
-   }
+   x_cordic -= x_shift;
+   y_cordic += y_shift;
    theta_out -= angles[i];
   }
-  x_temp = x_cordic;
  }
 
 
-
  *r = (x_cordic>>1) + (x_cordic>>3) - (x_cordic>>6) - (x_cordic>>9);
+
+
+
  if(x>=0){*theta = theta_out;}
  else{
   if(y>=0){*theta = (data_t)3.14159265359 + theta_out;}

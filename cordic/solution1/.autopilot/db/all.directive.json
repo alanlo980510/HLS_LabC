@@ -3,11 +3,45 @@
       "directive": [
         {
           "functionName": "cordiccart2pol",
-          "label": "",
+          "label": "cordic_loop",
           "functionLabel": "",
           "id": "1",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/hls_workspace\/lab\/labC\/cordic_v5\/solution1\/directives.tcl",
           "sourceLine": "6",
+          "pragma": {"name": "UNROLL"}
+        },
+        {
+          "functionName": "cordiccart2pol",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/hls_workspace\/lab\/labC\/cordic_v5\/solution1\/directives.tcl",
+          "sourceLine": "7",
+          "pragma": {
+            "name": "STREAM",
+            "option": [
+              {
+                "name": "variable",
+                "value": "r_out1"
+              },
+              {
+                "name": "depth",
+                "value": "1"
+              },
+              {
+                "name": "type",
+                "value": "fifo"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "cordiccart2pol",
+          "label": "",
+          "functionLabel": "",
+          "id": "3",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/hls_workspace\/lab\/labC\/cordic_v5\/solution1\/directives.tcl",
+          "sourceLine": "8",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -18,34 +52,25 @@
         },
         {
           "functionName": "cordiccart2pol",
-          "label": "cordic_loop",
-          "functionLabel": "",
-          "id": "2",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
-          "sourceLine": "7",
-          "pragma": {"name": "PIPELINE"}
-        },
-        {
-          "functionName": "cordiccart2pol",
           "label": "",
           "functionLabel": "",
-          "id": "3",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/directives.tcl",
-          "sourceLine": "8",
+          "id": "4",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/hls_workspace\/lab\/labC\/cordic_v5\/solution1\/directives.tcl",
+          "sourceLine": "9",
           "pragma": {
-            "name": "ARRAY_PARTITION",
+            "name": "STREAM",
             "option": [
               {
                 "name": "variable",
-                "value": "angles"
+                "value": "r_out2"
               },
               {
-                "name": "complete",
-                "value": ""
-              },
-              {
-                "name": "dim",
+                "name": "depth",
                 "value": "1"
+              },
+              {
+                "name": "type",
+                "value": "fifo"
               }
             ]
           }
@@ -54,8 +79,8 @@
           "functionName": "cordiccart2pol",
           "label": "",
           "functionLabel": "",
-          "id": "4",
-          "sourceFile": "C:\/Users\/Alan\/Desktop\/HLS_LabC\/cordic\/solution1\/csynth.tcl",
+          "id": "5",
+          "sourceFile": "C:\/Users\/Alan\/Desktop\/hls_workspace\/lab\/labC\/cordic_v5\/solution1\/csynth.tcl",
           "sourceLine": "16",
           "pragma": {
             "name": "TOP",

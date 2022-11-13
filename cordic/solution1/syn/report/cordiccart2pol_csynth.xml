@@ -10,7 +10,7 @@
 <Part>xc7z020-clg400-1</Part>
 <TopModelName>cordiccart2pol</TopModelName>
 <TargetClockPeriod>1000.00</TargetClockPeriod>
-<ClockUncertainty>995.39</ClockUncertainty>
+<ClockUncertainty>997.00</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
@@ -18,25 +18,25 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>4.606</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.874</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>16</Best-caseLatency>
-<Average-caseLatency>16</Average-caseLatency>
-<Worst-caseLatency>16</Worst-caseLatency>
-<Best-caseRealTimeLatency>16.000 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>16.000 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>16.000 us</Worst-caseRealTimeLatency>
-<Interval-min>17</Interval-min>
-<Interval-max>17</Interval-max>
+<Best-caseLatency>14</Best-caseLatency>
+<Average-caseLatency>14</Average-caseLatency>
+<Worst-caseLatency>14</Worst-caseLatency>
+<Best-caseRealTimeLatency>14.000 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>14.000 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>14.000 us</Worst-caseRealTimeLatency>
+<Interval-min>15</Interval-min>
+<Interval-max>15</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>180</FF>
-<LUT>829</LUT>
+<FF>780</FF>
+<LUT>1597</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>

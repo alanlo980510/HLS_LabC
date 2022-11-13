@@ -48,7 +48,7 @@
         <Format formatName="xo"/>
     </ExportDesign>
     <Simulation argv="">
-        <SimFlow askAgain="true" clangSanitizer="false" compile="false" compileChoice="gcc" disableDeadlockDetect="false" dumpTrace="port" enableDataflowProfiling="false" enableFifoSizing="false" name="cosim" optimizeCompile="false" random_stall="false" reduce_diskspace="false" setup="false" toolName="auto" waveDebug="false" ldflags="" mflags="" compiledLibrary="">
+        <SimFlow askAgain="true" clangSanitizer="false" compile="false" compileChoice="gcc" disableDeadlockDetect="false" dumpTrace="all" enableDataflowProfiling="false" enableFifoSizing="false" name="cosim" optimizeCompile="false" random_stall="false" reduce_diskspace="false" setup="false" toolName="auto" waveDebug="false" ldflags="" mflags="" compiledLibrary="">
             <Rtl active="false" name="systemc"/>
             <Rtl active="true" name="verilog"/>
             <Rtl active="false" name="vhdl"/>
@@ -58,7 +58,7 @@
         <value string="solution1"/>
     </name>
     <project>
-        <value string="cordic"/>
+        <value string="cordic_v5"/>
     </project>
     <flowTarget value="vivado"/>
     <targetInfo>
@@ -68,7 +68,7 @@
         <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
     </libraryList>
     <clockList>
-        <clock default="false" name="default" uncertainty="995.39" period="1000"/>
+        <clock name="default" default="false" uncertainty="997" period="1000"/>
     </clockList>
 </solution>
 

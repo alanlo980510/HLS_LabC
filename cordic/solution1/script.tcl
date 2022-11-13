@@ -3,17 +3,17 @@
 ## Please DO NOT edit it.
 ## Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ############################################################
-open_project cordic
+open_project cordic_v5
 set_top cordiccart2pol
-add_files cordic/code_src/cordiccart2pol.h
-add_files cordic/code_src/cordiccart2pol.cpp
-add_files -tb cordic/code_src/cordiccart2pol_test.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
+add_files cordic_v5/code_src/cordiccart2pol.cpp
+add_files cordic_v5/code_src/cordiccart2pol.h
+add_files -tb cordic_v5/code_src/cordiccart2pol_test.cpp
 open_solution "solution1" -flow_target vivado
-set_part {xc7z020-clg400-1}
+set_part {xc7z020clg400-1}
 create_clock -period 1000 -name default
-set_clock_uncertainty 995.39
-source "./cordic/solution1/directives.tcl"
+set_clock_uncertainty 997
+source "./cordic_v5/solution1/directives.tcl"
 csim_design
 csynth_design
-cosim_design -trace_level port
+cosim_design -trace_level all
 export_design -format ip_catalog

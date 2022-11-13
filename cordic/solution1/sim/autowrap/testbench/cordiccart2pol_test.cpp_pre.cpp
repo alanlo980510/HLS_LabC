@@ -1,8 +1,8 @@
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp"
-# 1 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 1
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp"
+# 1 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 1
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 1
 # 55 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h"
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_common.h" 1
@@ -55224,8 +55224,7 @@ inline bool operator!=(
 
 }
 # 412 "C:/Xilinx/Vitis_HLS/2022.1/include/ap_fixed.h" 2
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol.h" 2
-
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol.h" 2
 
 
 
@@ -55238,9 +55237,9 @@ typedef float acc_t;
 typedef ap_fixed<15, 3, AP_RND_MIN_INF> data_t;
 
 void cordiccart2pol(data_t x, data_t y, data_t * r, data_t * theta);
-# 2 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp" 2
+# 2 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp" 2
 # 1 "C:/Xilinx/Vitis_HLS/2022.1/tps/win64/msys64/mingw64/include/c++/6.2.0/math.h" 1 3
-# 3 "C:/Users/Alan/Desktop/HLS_LabC/cordic/code_src/cordiccart2pol_test.cpp" 2
+# 3 "C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/code_src/cordiccart2pol_test.cpp" 2
 
 
 

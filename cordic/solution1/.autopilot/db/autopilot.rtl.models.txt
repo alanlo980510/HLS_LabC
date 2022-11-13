@@ -1,4 +1,1 @@
-cordiccart2pol_mux_114_15_1_1
-cordiccart2pol_flow_control_loop_pipe_sequential_init
-cordiccart2pol_Pipeline_cordic_loop
 cordiccart2pol

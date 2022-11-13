@@ -54,13 +54,13 @@ set NewPortList {[
  	{ "name": "theta_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "theta", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "cordiccart2pol",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "16", "EstimateLatencyMax" : "16",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "14", "EstimateLatencyMax" : "14",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -72,51 +72,21 @@ set RtlHierarchyInfo {[
 			{"Name" : "x", "Type" : "None", "Direction" : "I"},
 			{"Name" : "y", "Type" : "None", "Direction" : "I"},
 			{"Name" : "r", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "theta", "Type" : "Vld", "Direction" : "O"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_cordiccart2pol_Pipeline_cordic_loop_fu_92", "Parent" : "0", "Child" : ["2", "3", "4"],
-		"CDFG" : "cordiccart2pol_Pipeline_cordic_loop",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "13", "EstimateLatencyMax" : "13",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "select_ln1697", "Type" : "None", "Direction" : "I"},
-			{"Name" : "select_ln1697_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "x_cordic_V_5_out", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "theta_out_V_out", "Type" : "Vld", "Direction" : "O"}],
-		"Loop" : [
-			{"Name" : "cordic_loop", "PipelineType" : "UPC",
-				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter1", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_cordiccart2pol_Pipeline_cordic_loop_fu_92.mux_114_15_1_1_U1", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_cordiccart2pol_Pipeline_cordic_loop_fu_92.mux_114_15_1_1_U2", "Parent" : "1"},
-	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_cordiccart2pol_Pipeline_cordic_loop_fu_92.flow_control_loop_pipe_sequential_init_U", "Parent" : "1"}]}
+			{"Name" : "theta", "Type" : "Vld", "Direction" : "O"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	cordiccart2pol {
 		x {Type I LastRead 0 FirstWrite -1}
 		y {Type I LastRead 0 FirstWrite -1}
-		r {Type O LastRead -1 FirstWrite 3}
-		theta {Type O LastRead -1 FirstWrite 2}}
-	cordiccart2pol_Pipeline_cordic_loop {
-		select_ln1697 {Type I LastRead 0 FirstWrite -1}
-		select_ln1697_1 {Type I LastRead 0 FirstWrite -1}
-		x_cordic_V_5_out {Type O LastRead -1 FirstWrite 1}
-		theta_out_V_out {Type O LastRead -1 FirstWrite 1}}}
+		r {Type O LastRead -1 FirstWrite 13}
+		theta {Type O LastRead -1 FirstWrite 14}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "16", "Max" : "16"}
-	, {"Name" : "Interval", "Min" : "17", "Max" : "17"}
+	{"Name" : "Latency", "Min" : "14", "Max" : "14"}
+	, {"Name" : "Interval", "Min" : "15", "Max" : "15"}
 ]}
 
 set PipelineEnableSignalInfo {[

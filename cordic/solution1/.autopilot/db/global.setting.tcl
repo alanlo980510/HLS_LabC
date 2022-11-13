@@ -44,7 +44,7 @@ set SCTraceOption all
 set TargetInfo xc7z020:-clg400:-1
 set SourceFiles {sc {} c ../code_src/cordiccart2pol.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/solution1.directive
+set DirectiveFile C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/solution1/solution1.directive
 set TBFiles {verilog ../code_src/cordiccart2pol_test.cpp bc ../code_src/cordiccart2pol_test.cpp vhdl ../code_src/cordiccart2pol_test.cpp sc ../code_src/cordiccart2pol_test.cpp cas ../code_src/cordiccart2pol_test.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

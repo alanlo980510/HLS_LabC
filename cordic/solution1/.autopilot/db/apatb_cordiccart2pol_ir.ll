@@ -1,4 +1,4 @@
-; ModuleID = 'C:/Users/Alan/Desktop/HLS_LabC/cordic/solution1/.autopilot/db/a.g.ld.5.gdce.bc'
+; ModuleID = 'C:/Users/Alan/Desktop/hls_workspace/lab/labC/cordic_v5/solution1/.autopilot/db/a.g.ld.5.gdce.bc'
 source_filename = "llvm-link"
 target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:2048-i4096:4096-n8:16:32:64-S128-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
 target triple = "fpga64-xilinx-none"
@@ -7,7 +7,7 @@ target triple = "fpga64-xilinx-none"
 %"struct.ap_fixed_base<15, 3, true, AP_RND_MIN_INF, AP_WRAP, 0>" = type { %"struct.ssdm_int<15, true>" }
 %"struct.ssdm_int<15, true>" = type { i15 }
 
-; Function Attrs: inaccessiblemem_or_argmemonly noinline
+; Function Attrs: argmemonly noinline
 define void @apatb_cordiccart2pol_ir(%"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"* nocapture readonly %x, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"* nocapture readonly %y, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"* noalias nocapture nonnull %r, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"* noalias nocapture nonnull %theta) local_unnamed_addr #0 {
 entry:
   %r_copy = alloca i15, align 512
@@ -96,7 +96,7 @@ entry:
 
 declare void @cordiccart2pol_hw_stub(%"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"*, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"*, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"*, %"struct.ap_fixed<15, 3, AP_RND_MIN_INF, AP_WRAP, 0>"*)
 
-attributes #0 = { inaccessiblemem_or_argmemonly noinline "fpga.wrapper.func"="wrapper" }
+attributes #0 = { argmemonly noinline "fpga.wrapper.func"="wrapper" }
 attributes #1 = { argmemonly noinline norecurse "fpga.wrapper.func"="copyin" }
 attributes #2 = { argmemonly noinline norecurse "fpga.wrapper.func"="copyout" }
 attributes #3 = { argmemonly noinline norecurse "fpga.wrapper.func"="onebyonecpy_hls" }

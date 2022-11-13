@@ -3,7 +3,6 @@
 #ifndef CORDICCART2POL_H
 #define CORDICCART2POL_H
 
-//#define NO_ITER 16
 #define NO_ITER 11
 
 typedef int   coef_t;

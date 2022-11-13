@@ -1,6 +1,5 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../code_src/cordiccart2pol_test.cpp in debug mode
    Compiling ../../../code_src/cordiccart2pol.cpp in debug mode
    Generating csim.exe
 ---Testing results----------------------------------

@@ -3,7 +3,7 @@ set clock_constraint { \
     module cordiccart2pol \
     port ap_clk \
     period 1000 \
-    uncertainty 995.39 \
+    uncertainty 997 \
 }
 
 set all_path {}
